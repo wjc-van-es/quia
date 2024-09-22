@@ -47,14 +47,16 @@ didn't work either.
 
 ---
 ### Note
-I temporarily added [https://maven.repository.redhat.com/ga/](https://maven.repository.redhat.com/ga/) as dependency
+- I temporarily added [https://maven.repository.redhat.com/ga/](https://maven.repository.redhat.com/ga/) as dependency
 and plugin-dependency repository to the project's pom.xml, but this didn't help and any dependency found was downloaded
 from maven's default `central` not `red-hat-enterprise-maven-repository`
-Instructions in
+- Instructions in
 [https://docs.redhat.com/en/documentation/red_hat_build_of_quarkus/3.8/html-single/developing_and_compiling_your_red_hat_build_of_quarkus_applications_with_apache_maven/index#proc_online-maven_quarkus-maven](https://docs.redhat.com/en/documentation/red_hat_build_of_quarkus/3.8/html-single/developing_and_compiling_your_red_hat_build_of_quarkus_applications_with_apache_maven/index#proc_online-maven_quarkus-maven)
 suggests to temper with ~/.m2/settings.xml, but I prefer everything to be configured in the project's pom.xml
 to prevent any "works on my machine" exceptions. so I placed the repo for both plugins and regular dependencies there.
 see: https://maven.apache.org/guides/mini/guide-multiple-repositories.html
+- see for available quarkus extensions:
+[https://repo.maven.apache.org/maven2/io/quarkus/quarkus-rest/](https://repo.maven.apache.org/maven2/io/quarkus/quarkus-rest/)
 ---
 
 Comparing the created pom with the ones in the https://github.com/xstefank/quarkus-in-action revealed several 
