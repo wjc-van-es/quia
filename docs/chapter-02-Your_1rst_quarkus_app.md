@@ -64,3 +64,22 @@ differences most notably `<quarkus.platform.version>3.14.1</quarkus.platform.ver
 and the dependency `io.quarkus:resteasy-reactive` being absent from the repository's pom.
 
 Now `mvn clean package` worked fine.
+
+
+## §2.3 Running the Quarkus Application with `mvn quarkus:dev`
+- We could run quarkus with maven from the maven tool window, but as this is a long-running process, it is probably
+more convenient to run it from a dedicated terminal.
+- However, we must not forget to ensure Java 21 being set in that terminal, whereas the Java default on our laptop is
+  still Java 17.
+
+### setting a fixed environment with SDKMan! with `sdk env`
+- Open a terminal in the project root (where the `pom.xml` is situated)
+- check the current Java version, which will be the default with `sdk current java`
+- look up the available Java 21 version with `sdk list java | grep tem`
+- Change to the Java 21 version with `sdk use java 21.0.4-tem` This will change the java version only for this terminal
+- Now create an `.sdkmanrc` file with `sdk env init`,
+  - which will contain the line `java=21.0.4-tem`, because this was already set in the terminal with the 
+    `sdk use java 21.0.4-tem` command
+- Now next terminal starting in the project root with the `.sdkmanrc` file can be set to the right environment with
+  `sdk env`
+
