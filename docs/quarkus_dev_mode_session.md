@@ -47,9 +47,11 @@ h1,h2,h3,h4,h5 {
 - then changed [`nl.vea.GreetingResourceTest`](../src/test/java/nl/vea/GreetingResourceTest.java), which fixed the test
   based on
   [https://stackoverflow.com/questions/51064444/rest-assured-verify-that-a-json-object-contains-all-strings-from-a-list](https://stackoverflow.com/questions/51064444/rest-assured-verify-that-a-json-object-contains-all-strings-from-a-list)
-- then we stopped the run with `Ctrl+C` in the terminal
+- `Press [e] to edit command line args (currently ''), [r] to resume testing, [o] Toggle test output, [:] for the
+   terminal, [h] for more options>`gives a number of options if you choose `h` you get a more elaborate list.
+- then we stopped the run with `Ctrl+C` in the terminal, we could also have used `q`.
 - then restarted with `mvn quarkus:dev` again, refreshing [http://localhost:8080/hello](http://localhost:8080/hello)
-- then we stopped again with `Ctrl+C` in the terminal
+- then we stopped again with `Ctrl+C` in the terminal, we could also have used `q`.
 - we retried with `quarkus dev` followed with refreshing [http://localhost:8080/hello](http://localhost:8080/hello)
 - finally we stopped again with `Ctrl+C` in the terminal again.
 
@@ -281,6 +283,37 @@ __  ____  __  _____   ___  __ ____  ______
 
 --
 Tests paused
+Press [e] to edit command line args (currently ''), [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>h
+The following commands are available:
+
+== Continuous Testing
+
+[r] - Resume testing
+[o] - Toggle test output (disabled)
+
+== Exceptions
+
+[x] - Open last exception (or project) in IDE (none)
+
+== HTTP
+
+[w] - Open the application in a browser
+[d] - Open the Dev UI in a browser
+
+== System
+
+[s] - Force restart
+[e] - Edits the command line parameters and restarts ()
+[i] - Toggle instrumentation based reload (disabled)
+[l] - Toggle live reload (enabled)
+[j] - Toggle log levels (INFO)
+[h] - Show this help
+[:] - Enter terminal mode
+[q] - Quit the application
+
+--
+Tests paused
+Press [e] to edit command line args (currently ''), [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>q
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
@@ -322,3 +355,22 @@ Process finished with exit code 0
 
 ---
 
+## Running the actual application in production mode
+- execute `~/git/quia$ sdk env` to activate Java 21 in the terminal instead of the default Java 17
+- execute `~/git/quia$ mvn clean package -e` to create all artifacts
+- `target/quarkus-app` contains:
+  - `app/quia-1.0.0-SNAPSHOT.jar` as the primary result of the `mvn package` command, this is NOT a fat jar,
+    and it is NOT runnable as its `META-INF/` directory doesn't contain a manifest file.
+  - therefore, there is a `lib/` directory as well with all the dependencies
+  - `quarkus-run.jar` as a runnable jar, which only contains a `META-INF/MANIFEST.MF` that states all jars in
+    `target/quarkus-app/lib` as part of the `Class-Path` and `Main-Class: io.quarkus.bootstrap.runner.QuarkusEntryPoint`
+    This class probably knows that it has to use `target/quarkus-app/app/quia-1.0.0-SNAPSHOT.jar`
+- Thus, running `~/git/quia$ java -jar target/quarkus-app/quarkus-run.jar` will execute the application in production 
+  mode.
+- This doesn't have the interactive CLI commands, like `q` for ending the program, the dev mode provides. Hence, we
+  used `Ctrl+C` to quit.
+- When you look at the generated [../src/main/docker/Dockerfile.jvm](../src/main/docker/Dockerfile.jvm), you see that
+  the image the subdirectories described above copies into different layers (as each separate COPY command produces
+  a separate layer)
+- For the base image we probably want to move to `registry.access.redhat.com/ubi8/openjdk-21:1.20` see
+  [https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc](https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc)
