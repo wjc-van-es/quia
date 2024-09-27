@@ -373,4 +373,6 @@ Process finished with exit code 0
   the image the subdirectories described above copies into different layers (as each separate COPY command produces
   a separate layer)
 - For the base image we probably want to move to `registry.access.redhat.com/ubi8/openjdk-21:1.20` see
-  [https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc](https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc)
+  - [https://catalog.redhat.com/search?q=OpenJDK&searchType=containers&architecture=amd64&p=1](https://catalog.redhat.com/search?q=OpenJDK&searchType=containers&architecture=amd64&p=1)
+  - [https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc](https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0?image=66f23c1b2930d5fe46ed47fc)
+  - [https://catalog.redhat.com/software/containers/ubi9/openjdk-21/6501cdb5c34ae048c44f7814?gs=&q=OpenJDK%20&container-tabs=technical-information](https://catalog.redhat.com/software/containers/ubi9/openjdk-21/6501cdb5c34ae048c44f7814?gs=&q=OpenJDK%20&container-tabs=technical-information)
