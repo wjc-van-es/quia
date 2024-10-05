@@ -1,0 +1,53 @@
+Listing extensions (default action, see --help).
+Current Quarkus extensions installable: 
+
+✬ ArtifactId                                         Extension                                                    Version                   Guide
+  quarkus-amazon-alexa                               Amazon Alexa                                                 2.0.0                     https://quarkus.io/guides/amazon-lambda
+✬ quarkus-amazon-lambda                              AWS Lambda                                                   3.14.1                    https://quarkus.io/guides/aws-lambda
+✬ quarkus-amazon-lambda-http                         AWS Lambda HTTP                                              3.14.1                    https://quarkus.io/guides/aws-lambda-http
+✬ quarkus-amazon-lambda-rest                         AWS Lambda Gateway REST API                                  3.14.1                    https://quarkus.io/guides/aws-lambda-http
+✬ quarkus-amazon-lambda-xray                         AWS Lambda X-Ray                                             3.14.1                    https://quarkus.io/guides/amazon-lambda#tracing-with-aws-xray-and-graalvm
+  quarkus-azure-app-configuration                    Quarkus Azure App Configuration                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-app-configuration.html
+  quarkus-azure-cosmos                               Quarkus Support Azure Cosmos DB                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-cosmos.html
+✬ quarkus-azure-functions                            Azure Functions                                              3.14.1                    https://quarkus.io/guides/azure-functions
+✬ quarkus-azure-functions-http                       Azure Functions HTTP                                         3.14.1                    https://quarkus.io/guides/azure-functions-http
+  quarkus-azure-keyvault                             Quarkus Support Azure Key Vault                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-key-vault.html
+  quarkus-azure-storage-blob                         Quarkus Support Azure Storage Blob                           1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-storage-blob.html
+✬ quarkus-container-image-buildpack                  Container Image Buildpack                                    3.14.1                    
+✬ quarkus-container-image-docker                     Container Image Docker                                       3.14.1                    
+✬ quarkus-container-image-jib                        Container Image Jib                                          3.14.1                    
+✬ quarkus-container-image-openshift                  Container Image OpenShift                                    3.14.1                    
+✬ quarkus-container-image-podman                     Container Image Podman                                       3.14.1                    https://quarkus.io/guides/container-image
+✬ quarkus-funqy-amazon-lambda                        Funqy AWS Lambda Binding                                     3.14.1                    https://quarkus.io/guides/funqy-aws-lambda
+✬ quarkus-funqy-google-cloud-functions               Funqy Google Cloud Functions                                 3.14.1                    https://quarkus.io/guides/funqy-gcp-functions
+✬ quarkus-funqy-http                                 Funqy HTTP Binding                                           3.14.1                    https://quarkus.io/guides/funqy-http
+✬ quarkus-funqy-knative-events                       Funqy Knative Events Binding                                 3.14.1                    https://quarkus.io/guides/funqy-knative-events
+✬ quarkus-google-cloud-bigquery                      Google Cloud Bigquery                                        2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/bigquery.html
+✬ quarkus-google-cloud-bigtable                      Google Cloud Bigtable                                        2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/bigtable.html
+✬ quarkus-google-cloud-firebase-admin                Google Cloud Firebase Admin                                  2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/firebase-admin.html
+✬ quarkus-google-cloud-firestore                     Google Cloud Firestore                                       2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/firestore.html
+✬ quarkus-google-cloud-functions                     Google Cloud Functions                                       3.14.1                    https://quarkus.io/guides/gcp-functions
+✬ quarkus-google-cloud-functions-http                Google Cloud Functions HTTP                                  3.14.1                    https://quarkus.io/guides/gcp-functions-http
+✬ quarkus-google-cloud-logging                       Google Cloud Logging                                         2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/logging.html
+✬ quarkus-google-cloud-pubsub                        Google Cloud Pubsub                                          2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/pubsub.html
+✬ quarkus-google-cloud-secret-manager                Google Cloud Secret Manager                                  2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/secretmanager.html
+✬ quarkus-google-cloud-spanner                       Google Cloud Spanner                                         2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/spanner.html
+✬ quarkus-google-cloud-storage                       Google Cloud Storage                                         2.11.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/storage.html
+  quarkus-helm                                       Quarkus - Helm                                               1.2.3                     
+  quarkus-hibernate-search-orm-elasticsearch-aws     Hibernate Search + Elasticsearch - AWS authentication an...  4.1.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-hibernate-search-extras/dev/index.html#aws-integration
+✬ quarkus-kind                                       Kind                                                         3.14.1                    https://quarkus.io/guides/kubernetes
+✬ quarkus-kubernetes                                 Kubernetes                                                   3.14.1                    https://quarkus.io/guides/kubernetes
+✬ quarkus-kubernetes-client                          Kubernetes Client                                            3.14.1                    https://quarkus.io/guides/kubernetes-client
+✬ quarkus-kubernetes-config                          Kubernetes Config                                            3.14.1                    https://quarkus.io/guides/kubernetes-config
+✬ quarkus-kubernetes-service-binding                 Kubernetes Service Binding                                   3.14.1                    
+✬ quarkus-load-shedding                              Load Shedding                                                3.14.1                    https://quarkus.io/guides/load-shedding-reference
+  quarkus-microcks                                   Microcks                                                     0.2.6                     https://github.com/microcks/microcks-quarkus
+✬ quarkus-minikube                                   Minikube                                                     3.14.1                    https://quarkus.io/guides/kubernetes
+✬ quarkus-openshift                                  OpenShift                                                    3.14.1                    https://quarkus.io/guides/deploying-to-openshift
+✬ quarkus-openshift-client                           OpenShift Client                                             3.14.1                    https://quarkus.io/guides/kubernetes-client
+✬ quarkus-operator-sdk                               Operator SDK                                                 6.7.3                     https://docs.quarkiverse.io/quarkus-operator-sdk/dev/index.html
+✬ quarkus-operator-sdk-bundle-generator              Operator SDK - OLM Bundle Generator                          6.7.3                     
+✬ quarkus-smallrye-fault-tolerance                   SmallRye Fault Tolerance                                     3.14.1                    https://quarkus.io/guides/smallrye-fault-tolerance
+✬ quarkus-smallrye-health                            SmallRye Health                                              3.14.1                    https://quarkus.io/guides/smallrye-health
+
+Add an extension to your project by adding the dependency to your pom.xml or use `quarkus extension add "artifactId"`
