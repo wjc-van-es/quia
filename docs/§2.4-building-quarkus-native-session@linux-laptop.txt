@@ -1,0 +1,420 @@
+willem@linux-laptop:~/git/quia$ sdk install java 23.1.4.r21-mandrel
+
+Downloading: java 23.1.4.r21-mandrel
+
+In progress...
+
+############################################################################################################################################################################# 100,0%
+
+Repackaging Java 23.1.4.r21-mandrel...
+
+Done repackaging...
+
+Installing: java 23.1.4.r21-mandrel
+Done installing!
+
+Do you want java 23.1.4.r21-mandrel to be set as default? (Y/n): n
+willem@linux-laptop:~/git/quia$ printenv PATH
+/home/willem/.nvm/versions/node/v21.6.2/bin:/home/willem/anaconda3/condabin:/home/willem/.sdkman/candidates/spark/current/bin:/home/willem/.sdkman/candidates/quarkus/current/bin:/home/willem/.sdkman/candidates/maven/current/bin:/home/willem/.sdkman/candidates/java/current/bin:/home/willem/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/willem/.local/share/JetBrains/Toolbox/scripts:/home/willem/go/bin
+willem@linux-laptop:~/git/quia$ sdk use java 23.1.4.r21-mandrel
+
+Using java version 23.1.4.r21-mandrel in this shell.
+willem@linux-laptop:~/git/quia$ printenv PATH
+/home/willem/.nvm/versions/node/v21.6.2/bin:/home/willem/anaconda3/condabin:/home/willem/.sdkman/candidates/spark/current/bin:/home/willem/.sdkman/candidates/quarkus/current/bin:/home/willem/.sdkman/candidates/maven/current/bin:/home/willem/.sdkman/candidates/java/23.1.4.r21-mandrel/bin:/home/willem/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/willem/.local/share/JetBrains/Toolbox/scripts:/home/willem/go/bin
+willem@linux-laptop:~/git/quia$ mvn clean package -Pnaive
+[INFO] Scanning for projects...
+[WARNING] The requested profile "naive" could not be activated because it does not exist.
+[INFO]
+[INFO] ----------------------------< nl.vea:quia >-----------------------------
+[INFO] Building quia 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ quia ---
+[INFO] Deleting /home/willem/git/quia/target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ quia ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code (default) @ quia ---
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ quia ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code-tests (default) @ quia ---
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quia ---
+[INFO] skip non existing resourceDirectory /home/willem/git/quia/src/test/resources
+[INFO]
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ quia ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.0:test (default-test) @ quia ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running nl.vea.GreetingResourceTest
+2024-10-04 19:50:18,419 INFO  [io.quarkus] (main) quia 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.15.1) started in 1.716s. Listening on: http://localhost:8081
+2024-10-04 19:50:18,421 INFO  [io.quarkus] (main) Profile test activated.
+2024-10-04 19:50:18,422 INFO  [io.quarkus] (main) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.005 s -- in nl.vea.GreetingResourceTest
+2024-10-04 19:50:19,214 INFO  [io.quarkus] (main) quia stopped in 0.022s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.4.1:jar (default-jar) @ quia ---
+[INFO] Building jar: /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- quarkus:3.15.1:build (default) @ quia ---
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1042ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.806 s
+[INFO] Finished at: 2024-10-04T19:50:21+02:00
+[INFO] ------------------------------------------------------------------------
+[WARNING] The requested profile "naive" could not be activated because it does not exist.
+willem@linux-laptop:~/git/quia$ mvn clean package -Pnative
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------------< nl.vea:quia >-----------------------------
+[INFO] Building quia 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ quia ---
+[INFO] Deleting /home/willem/git/quia/target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ quia ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code (default) @ quia ---
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ quia ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code-tests (default) @ quia ---
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quia ---
+[INFO] skip non existing resourceDirectory /home/willem/git/quia/src/test/resources
+[INFO]
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ quia ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.0:test (default-test) @ quia ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running nl.vea.GreetingResourceTest
+2024-10-04 19:50:43,134 INFO  [io.quarkus] (main) quia 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.15.1) started in 3.180s. Listening on: http://localhost:8081
+2024-10-04 19:50:43,136 INFO  [io.quarkus] (main) Profile test activated.
+2024-10-04 19:50:43,137 INFO  [io.quarkus] (main) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.551 s -- in nl.vea.GreetingResourceTest
+2024-10-04 19:50:44,305 INFO  [io.quarkus] (main) quia stopped in 0.033s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.4.1:jar (default-jar) @ quia ---
+[INFO] Building jar: /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- quarkus:3.15.1:build (default) @ quia ---
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building native image source jar: /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Building native image from /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Running Quarkus native-image plugin on MANDREL 23.1.4.0 JDK 21.0.4+7-LTS
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] /home/willem/.sdkman/candidates/java/23.1.4.r21-mandrel/bin/native-image -J-Djava.util.logging.manager=org.jboss.logmanager.LogManager -J-Dsun.nio.ch.maxUpdateArraySize=100 -J-Dlogging.initial-configurator.min-level=500 -J-Dvertx.logger-delegate-factory-class-name=io.quarkus.vertx.core.runtime.VertxLogDelegateFactory -J-Dvertx.disableDnsResolver=true -J-Dio.netty.leakDetection.level=DISABLED -J-Dio.netty.allocator.maxOrder=3 -J-Duser.language=en -J-Duser.country=US -J-Dfile.encoding=UTF-8 --features=io.quarkus.runner.Feature,io.quarkus.runtime.graal.DisableLoggingFeature -J--add-exports=java.security.jgss/sun.security.krb5=ALL-UNNAMED -J--add-exports=java.security.jgss/sun.security.jgss=ALL-UNNAMED -J--add-opens=java.base/java.text=ALL-UNNAMED -J--add-opens=java.base/java.io=ALL-UNNAMED -J--add-opens=java.base/java.lang.invoke=ALL-UNNAMED -J--add-opens=java.base/java.util=ALL-UNNAMED -H:+UnlockExperimentalVMOptions -H:BuildOutputJSONFile=quia-1.0.0-SNAPSHOT-runner-build-output-stats.json -H:-UnlockExperimentalVMOptions -H:+UnlockExperimentalVMOptions -H:+GenerateBuildArtifactsFile -H:-UnlockExperimentalVMOptions --strict-image-heap -H:+UnlockExperimentalVMOptions -H:+AllowFoldMethods -H:-UnlockExperimentalVMOptions -J-Djava.awt.headless=true --no-fallback --link-at-build-time -H:+UnlockExperimentalVMOptions -H:+ReportExceptionStackTraces -H:-UnlockExperimentalVMOptions -H:-AddAllCharsets --enable-url-protocols=http -H:NativeLinkerOption=-no-pie --enable-monitoring=heapdump -H:+UnlockExperimentalVMOptions -H:-UseServiceLoaderFeature -H:-UnlockExperimentalVMOptions -J--add-exports=org.graalvm.nativeimage/org.graalvm.nativeimage.impl=ALL-UNNAMED --exclude-config io\.netty\.netty-codec /META-INF/native-image/io\.netty/netty-codec/generated/handlers/reflect-config\.json --exclude-config io\.netty\.netty-handler /META-INF/native-image/io\.netty/netty-handler/generated/handlers/reflect-config\.json quia-1.0.0-SNAPSHOT-runner -jar quia-1.0.0-SNAPSHOT-runner.jar
+========================================================================================================================
+GraalVM Native Image: Generating 'quia-1.0.0-SNAPSHOT-runner' (executable)...
+========================================================================================================================
+[1/8] Initializing...                                                                                    (5.1s @ 0.24GB)
+ Java version: 21.0.4+7-LTS, vendor version: Mandrel-23.1.4.0-Final
+ Graal compiler: optimization level: 2, target machine: x86-64-v3
+ C compiler: gcc (linux, x86_64, 11.4.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 3 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+ - io.quarkus.runner.Feature: Auto-generated class by Quarkus from the existing extensions
+ - io.quarkus.runtime.graal.DisableLoggingFeature: Disables INFO logging during the analysis phase
+------------------------------------------------------------------------------------------------------------------------
+ 4 experimental option(s) unlocked:
+ - '-H:+AllowFoldMethods' (origin(s): command line)
+ - '-H:BuildOutputJSONFile' (origin(s): command line)
+ - '-H:-UseServiceLoaderFeature' (origin(s): command line)
+ - '-H:+GenerateBuildArtifactsFile' (origin(s): command line)
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 17.83GB of memory (57.4% of 31.05GB system memory, determined at start)
+ - 16 thread(s) (100.0% of 16 available processor(s), determined at start)
+[2/8] Performing analysis...  [******]                                                                  (29.1s @ 1.04GB)
+   10,968 reachable types   (86.0% of   12,748 total)
+   15,772 reachable fields  (55.8% of   28,254 total)
+   55,548 reachable methods (56.2% of   98,888 total)
+    3,545 types,   116 fields, and 3,128 methods registered for reflection
+       62 types,    67 fields, and    55 methods registered for JNI access
+        4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                               (5.8s @ 0.99GB)
+[4/8] Parsing methods...      [**]                                                                       (3.5s @ 1.12GB)
+[5/8] Inlining methods...     [***]                                                                      (2.1s @ 1.21GB)
+[6/8] Compiling methods...    [*****]                                                                   (28.0s @ 1.04GB)
+[7/8] Layouting methods...    [**]                                                                       (4.5s @ 1.29GB)
+[8/8] Creating image...       [***]                                                                      (7.1s @ 0.86GB)
+  22.48MB (46.13%) for code area:    35,339 compilation units
+  25.86MB (53.07%) for image heap:  297,514 objects and 57 resources
+ 399.71kB ( 0.80%) for other data
+  48.74MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  12.47MB java.base                                            7.13MB byte[] for code metadata
+   1.28MB svm.jar (Native Image)                               3.88MB byte[] for java.lang.String
+   1.10MB quia-1.0.0-SNAPSHOT-runner.jar                       2.69MB java.lang.String
+ 963.18kB modified-io.vertx.vertx-core-4.5.10.jar              2.69MB java.lang.Class
+ 569.18kB io.netty.netty-buffer-4.1.111.Final.jar              1.02MB byte[] for general heap data
+ 503.46kB io.netty.netty-common-4.1.111.Final.jar            942.56kB com.oracle.svm.core.hub.DynamicHubCompanion
+ 420.36kB io.netty.netty-codec-http-4.1.111.Final.jar        630.20kB byte[] for reflection metadata
+ 387.81kB io.netty.netty-codec-http2-4.1.111.Final.jar       527.98kB java.lang.String[]
+ 378.16kB io.netty.netty-transport-4.1.111.Final.jar         462.36kB heap alignment
+ 370.77kB io.smallrye.config.smallrye-config-core-3.9.1.jar  452.16kB java.util.HashMap$Node
+   3.87MB for 76 more packages                                 5.52MB for 2725 more object types
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+------------------------------------------------------------------------------------------------------------------------
+                       9.0s (10.3% of total time) in 628 GCs | Peak RSS: 2.33GB | CPU load: 11.74
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/build-artifacts.json (build_info)
+ /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner (executable)
+ /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner-build-output-stats.json (build_info)
+========================================================================================================================
+Finished generating 'quia-1.0.0-SNAPSHOT-runner' in 1m 26s.
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] objcopy --strip-debug quia-1.0.0-SNAPSHOT-runner
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 90786ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:42 min
+[INFO] Finished at: 2024-10-04T19:52:15+02:00
+[INFO] ------------------------------------------------------------------------
+willem@linux-laptop:~/git/quia$ ./target/quia-1.0.0-SNAPSHOT-runner
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2024-10-04 20:07:06,267 INFO  [io.quarkus] (main) quia 1.0.0-SNAPSHOT native (powered by Quarkus 3.15.1) started in 0.014s. Listening on: http://0.0.0.0:8080
+2024-10-04 20:07:06,267 INFO  [io.quarkus] (main) Profile prod activated.
+2024-10-04 20:07:06,267 INFO  [io.quarkus] (main) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+^C2024-10-04 20:13:59,216 INFO  [io.quarkus] (Shutdown thread) quia stopped in 0.002s
+willem@linux-laptop:~/git/quia$ mvn clean package -Pnative -Dquarkus.native.container-build=true
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------------< nl.vea:quia >-----------------------------
+[INFO] Building quia 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ quia ---
+[INFO] Deleting /home/willem/git/quia/target
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ quia ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code (default) @ quia ---
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ quia ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/classes
+[INFO]
+[INFO] --- quarkus:3.15.1:generate-code-tests (default) @ quia ---
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quia ---
+[INFO] skip non existing resourceDirectory /home/willem/git/quia/src/test/resources
+[INFO]
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ quia ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.0:test (default-test) @ quia ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running nl.vea.GreetingResourceTest
+2024-10-04 20:14:35,710 INFO  [io.quarkus] (main) quia 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.15.1) started in 1.622s. Listening on: http://localhost:8081
+2024-10-04 20:14:35,713 INFO  [io.quarkus] (main) Profile test activated.
+2024-10-04 20:14:35,713 INFO  [io.quarkus] (main) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.793 s -- in nl.vea.GreetingResourceTest
+2024-10-04 20:14:36,574 INFO  [io.quarkus] (main) quia stopped in 0.023s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.4.1:jar (default-jar) @ quia ---
+[INFO] Building jar: /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- quarkus:3.15.1:build (default) @ quia ---
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building native image source jar: /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Building native image from /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar/quia-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildContainerRunner] Using docker to run the native image builder
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildContainerRunner] Pulling builder image 'quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21'
+jdk-21: Pulling from quarkus/ubi-quarkus-mandrel-builder-image
+ccc2996f86eb: Pulling fs layer
+82ab9879d141: Pulling fs layer
+0cffade3bb54: Pulling fs layer
+134b265c2114: Pulling fs layer
+5ba94f1f35f4: Pulling fs layer
+5a4fe8259227: Pulling fs layer
+7aad5d60987d: Pull complete
+1954588322b8: Pull complete
+70de1e8c5cf4: Pull complete
+728660d544d9: Pull complete
+758ea5bd7c27: Pull complete
+6f86100ba447: Pull complete
+9bf08a3d1a8b: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:c39118d9040a566438bc23d4d6607eaf949d94722528a003987dfed894e19a04
+Status: Downloaded newer image for quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21
+quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Running Quarkus native-image plugin on MANDREL 23.1.4.0 JDK 21.0.4+7-LTS
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] docker run --env LANG=C --rm --user 1000:1000 -v /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar:/project:z --name build-native-ARQzP quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21 -J-Djava.util.logging.manager=org.jboss.logmanager.LogManager -J-Dsun.nio.ch.maxUpdateArraySize=100 -J-Dlogging.initial-configurator.min-level=500 -J-Dvertx.logger-delegate-factory-class-name=io.quarkus.vertx.core.runtime.VertxLogDelegateFactory -J-Dvertx.disableDnsResolver=true -J-Dio.netty.leakDetection.level=DISABLED -J-Dio.netty.allocator.maxOrder=3 -J-Duser.language=en -J-Duser.country=US -J-Dfile.encoding=UTF-8 --features=io.quarkus.runner.Feature,io.quarkus.runtime.graal.DisableLoggingFeature -J--add-exports=java.security.jgss/sun.security.krb5=ALL-UNNAMED -J--add-exports=java.security.jgss/sun.security.jgss=ALL-UNNAMED -J--add-opens=java.base/java.text=ALL-UNNAMED -J--add-opens=java.base/java.io=ALL-UNNAMED -J--add-opens=java.base/java.lang.invoke=ALL-UNNAMED -J--add-opens=java.base/java.util=ALL-UNNAMED -H:+UnlockExperimentalVMOptions -H:BuildOutputJSONFile=quia-1.0.0-SNAPSHOT-runner-build-output-stats.json -H:-UnlockExperimentalVMOptions -H:+UnlockExperimentalVMOptions -H:+GenerateBuildArtifactsFile -H:-UnlockExperimentalVMOptions --strict-image-heap -H:+UnlockExperimentalVMOptions -H:+AllowFoldMethods -H:-UnlockExperimentalVMOptions -J-Djava.awt.headless=true --no-fallback --link-at-build-time -H:+UnlockExperimentalVMOptions -H:+ReportExceptionStackTraces -H:-UnlockExperimentalVMOptions -H:-AddAllCharsets --enable-url-protocols=http --enable-monitoring=heapdump -H:+UnlockExperimentalVMOptions -H:-UseServiceLoaderFeature -H:-UnlockExperimentalVMOptions -J--add-exports=org.graalvm.nativeimage/org.graalvm.nativeimage.impl=ALL-UNNAMED --exclude-config io\.netty\.netty-codec /META-INF/native-image/io\.netty/netty-codec/generated/handlers/reflect-config\.json --exclude-config io\.netty\.netty-handler /META-INF/native-image/io\.netty/netty-handler/generated/handlers/reflect-config\.json quia-1.0.0-SNAPSHOT-runner -jar quia-1.0.0-SNAPSHOT-runner.jar
+========================================================================================================================
+GraalVM Native Image: Generating 'quia-1.0.0-SNAPSHOT-runner' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                    (3.3s @ 0.15GB)
+ Java version: 21.0.4+7-LTS, vendor version: Mandrel-23.1.4.0-Final
+ Graal compiler: optimization level: 2, target machine: x86-64-v3
+ C compiler: gcc (redhat, x86_64, 8.5.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 3 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+ - io.quarkus.runner.Feature: Auto-generated class by Quarkus from the existing extensions
+ - io.quarkus.runtime.graal.DisableLoggingFeature: Disables INFO logging during the analysis phase
+------------------------------------------------------------------------------------------------------------------------
+ 4 experimental option(s) unlocked:
+ - '-H:+AllowFoldMethods' (origin(s): command line)
+ - '-H:BuildOutputJSONFile' (origin(s): command line)
+ - '-H:-UseServiceLoaderFeature' (origin(s): command line)
+ - '-H:+GenerateBuildArtifactsFile' (origin(s): command line)
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 15.55GB of memory (50.1% of 31.05GB system memory, determined at start)
+ - 16 thread(s) (100.0% of 16 available processor(s), determined at start)
+[2/8] Performing analysis...  [******]                                                                  (29.6s @ 0.81GB)
+   10,960 reachable types   (86.0% of   12,740 total)
+   15,763 reachable fields  (55.8% of   28,242 total)
+   55,518 reachable methods (56.2% of   98,854 total)
+    3,545 types,   116 fields, and 3,127 methods registered for reflection
+       62 types,    67 fields, and    55 methods registered for JNI access
+        4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                               (4.6s @ 0.98GB)
+[4/8] Parsing methods...      [**]                                                                       (2.9s @ 1.09GB)
+[5/8] Inlining methods...     [***]                                                                      (2.2s @ 1.20GB)
+[6/8] Compiling methods...    [*****]                                                                   (26.2s @ 1.05GB)
+[7/8] Layouting methods...    [**]                                                                       (4.0s @ 1.29GB)
+[8/8] Creating image...       [***]                                                                      (7.2s @ 0.86GB)
+  22.48MB (46.12%) for code area:    35,318 compilation units
+  25.86MB (53.06%) for image heap:  297,057 objects and 57 resources
+ 407.11kB ( 0.82%) for other data
+  48.73MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  12.47MB java.base                                            7.12MB byte[] for code metadata
+   1.28MB svm.jar (Native Image)                               3.87MB byte[] for java.lang.String
+   1.10MB quia-1.0.0-SNAPSHOT-runner.jar                       2.69MB java.lang.String
+ 959.88kB modified-io.vertx.vertx-core-4.5.10.jar              2.68MB java.lang.Class
+ 569.17kB io.netty.netty-buffer-4.1.111.Final.jar              1.02MB byte[] for general heap data
+ 503.51kB io.netty.netty-common-4.1.111.Final.jar            941.88kB com.oracle.svm.core.hub.DynamicHubCompanion
+ 420.36kB io.netty.netty-codec-http-4.1.111.Final.jar        629.91kB byte[] for reflection metadata
+ 387.81kB io.netty.netty-codec-http2-4.1.111.Final.jar       527.81kB java.lang.String[]
+ 378.16kB io.netty.netty-transport-4.1.111.Final.jar         493.15kB heap alignment
+ 370.77kB io.smallrye.config.smallrye-config-core-3.9.1.jar  453.14kB java.util.HashMap$Node
+   3.87MB for 76 more packages                                 5.50MB for 2718 more object types
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+------------------------------------------------------------------------------------------------------------------------
+                       8.9s (10.9% of total time) in 703 GCs | Peak RSS: 2.44GB | CPU load: 12.11
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /project/build-artifacts.json (build_info)
+ /project/quia-1.0.0-SNAPSHOT-runner (executable)
+ /project/quia-1.0.0-SNAPSHOT-runner-build-output-stats.json (build_info)
+========================================================================================================================
+Finished generating 'quia-1.0.0-SNAPSHOT-runner' in 1m 20s.
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] docker run --env LANG=C --rm --user 1000:1000 -v /home/willem/git/quia/target/quia-1.0.0-SNAPSHOT-native-image-source-jar:/project:z --entrypoint /bin/bash quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21 -c objcopy --strip-debug quia-1.0.0-SNAPSHOT-runner
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 135982ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:23 min
+[INFO] Finished at: 2024-10-04T20:16:53+02:00
+[INFO] ------------------------------------------------------------------------
+willem@linux-laptop:~/git/quia$ ./target/quia-1.0.0-SNAPSHOT-runner
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2024-10-04 20:17:26,931 INFO  [io.quarkus] (main) quia 1.0.0-SNAPSHOT native (powered by Quarkus 3.15.1) started in 0.010s. Listening on: http://0.0.0.0:8080
+2024-10-04 20:17:26,931 INFO  [io.quarkus] (main) Profile prod activated.
+2024-10-04 20:17:26,931 INFO  [io.quarkus] (main) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+^C2024-10-04 20:17:57,030 INFO  [io.quarkus] (Shutdown thread) quia stopped in 0.002s
+willem@linux-laptop:~/git/quia$ docker image ls
+REPOSITORY                                          TAG              IMAGE ID       CREATED         SIZE
+quay.io/quarkus/ubi-quarkus-mandrel-builder-image   jdk-21           662592ced095   5 days ago      1.15GB
+postgres                                            16.4             69092dbdec0d   8 weeks ago     432MB
+paketobuildpacks/run-jammy-base                     latest           078d8de43793   8 weeks ago     111MB
+adminer                                             latest           2f7580903a1d   2 months ago    250MB
+gcr.io/k8s-minikube/kicbase                         v0.0.44          5a6e59a9bdc0   4 months ago    1.26GB
+paketobuildpacks/run-jammy-base                     <none>           530c11846f48   6 months ago    106MB
+testcontainers/ryuk                                 0.7.0            d2ed07d3edac   7 months ago    15.2MB
+postgres                                            16.1             d2d312b19332   9 months ago    432MB
+gcr.io/k8s-minikube/kicbase                         v0.0.42          dbc648475405   11 months ago   1.2GB
+postgres                                            15.4             69e765e8cdbe   13 months ago   412MB
+sakiladb/postgres                                   latest           dbd229277cf9   13 months ago   309MB
+postgres                                            15.3             8769343ac885   14 months ago   412MB
+testcontainers/ryuk                                 0.5.1            ec913eeff75a   16 months ago   12.7MB
+confluentinc/ksqldb-examples                        7.2.1            ae252c2780c4   2 years ago     815MB
+confluentinc/cp-ksqldb-server                       7.2.1            140d2ac32177   2 years ago     1.36GB
+confluentinc/cp-ksqldb-cli                          7.2.1            287039530a46   2 years ago     857MB
+confluentinc/cp-schema-registry                     7.2.1            afaac043dcc1   2 years ago     1.86GB
+confluentinc/cp-kafka                               7.2.1            d893473a6510   2 years ago     782MB
+confluentinc/cp-kafka                               latest           d893473a6510   2 years ago     782MB
+confluentinc/cp-zookeeper                           7.2.1            3f28db6a433d   2 years ago     782MB
+confluentinc/cp-zookeeper                           latest           3f28db6a433d   2 years ago     782MB
+confluentinc/cp-kafka-rest                          7.2.1            784b8061ad0c   2 years ago     1.76GB
+cnfldemos/kafka-connect-datagen                     0.5.3-7.1.0      de0e2396b904   2 years ago     1.46GB
+zookeeper                                           3.6.2            a72350516291   3 years ago     268MB
+bsucaciu/kafka                                      2.6.0            cbe9ab39d5fc   3 years ago     642MB
+bsucaciu/kerberos-producer                          1.0.0            eb27c056cc20   3 years ago     354MB
+bsucaciu/kerberos-consumer                          1.0.0            5486c13e058b   3 years ago     354MB
+bsucaciu/kerberos                                   krb5             ce76df4cb4a8   3 years ago     61MB
+ghcr.io/wjc-van-es/catalog-service                  0.0.4-SNAPSHOT   e8f3f0c523a3   44 years ago    323MB
+paketobuildpacks/builder-jammy-base                 latest           c0533f67fa7b   44 years ago    1.68GB
+paketobuildpacks/builder-jammy-base                 <none>           2ade997d9377   44 years ago    1.66GB
+paketobuildpacks/builder-jammy-base                 <none>           df485b32511e   44 years ago    1.41GB
+<none>                                              <none>           aea6d09ef97e   44 years ago    374MB
+ghcr.io/wjc-van-es/catalog-service                  0.0.5-SNAPSHOT   5fb6f5781cb4   44 years ago    374MB
+<none>                                              <none>           c8d7681f5bc3   44 years ago    374MB
+config-service                                      0.0.1-SNAPSHOT   0726fd86ac0e   44 years ago    297MB
+willem@linux-laptop:~/git/quia$
+
