@@ -3,12 +3,15 @@ package nl.vea;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.SecurityContext;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
@@ -38,6 +41,18 @@ public class GreetingResource {
                 System.getProperty("os.name"),
                 System.getProperty("os.arch"),
                 System.getProperty("os.version"));
+    }
+
+    @GET
+    @Path("/whoami")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String whoAmI(@Context SecurityContext securityContext) {
+        Principal userPrincipal = securityContext.getUserPrincipal();
+        if (userPrincipal != null) {
+            return userPrincipal.getName();
+        } else {
+            return "anonymous";
+        }
     }
 
     private static String getLogoDef() {
