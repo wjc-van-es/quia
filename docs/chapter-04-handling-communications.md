@@ -58,4 +58,62 @@ img {
   solve.
 
 ## §4.2 Car rental Service
+- If we look at [quarkus-installable-extensions-list.txt](quarkus-installable-extensions-list.txt) we notice that we 
+  have to specify different extension names then mentioned in the book MEAP V09:
+  - `quarkus-rest-jackson` instead of `quarkus-resteasy-reactive-jackson`
+  - `quarkus-rest-client-jackson` instead of `rest-client-reactive-jackson`
+  - `quarkus-smallrye-openapi` seems to be ok.
+- This is also confirmed by looking at [https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml]
+(https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml
+  - This also still has the same versions set in properties that we moved to the quia-parent pom for uniformity.
+- We therefore arrive at the following CLI command:
+  ```bash
+  willem@linux-laptop:~/git/quia/services$ quarkus create app \
+  --extension quarkus-rest-jackson,quarkus-rest-client-jackson,quarkus-smallrye-openapi --no-code
+  Looking for the newly published extensions in registry.quarkus.io
+  -----------
+  selected extensions:
+  - io.quarkus:quarkus-smallrye-openapi
+    - io.quarkus:quarkus-rest-jackson
+    - io.quarkus:quarkus-rest-client-jackson
+  
+  
+  applying codestarts...
+  📚 java
+  🔨 maven
+  📦 quarkus
+  📝 config-properties
+  🔧 tooling-dockerfiles
+  🔧 tooling-maven-wrapper
+  
+  -----------
+  [SUCCESS] ✅  quarkus project has been successfully generated in:
+  --> /home/willem/git/quia/services/code-with-quarkus
+  -----------
+  Navigate into this directory and get started: quarkus dev
+  willem@linux-laptop:~/git/quia/services$ quarkus create app nl.vea.quia:reservation-service --extension quarkus-rest-jackson,quarkus-rest-client-jackson,quarkus-smallrye-openapi --no-code
+  -----------
+  selected extensions:
+  - io.quarkus:quarkus-smallrye-openapi
+    - io.quarkus:quarkus-rest-jackson
+    - io.quarkus:quarkus-rest-client-jackson
+  
+  
+  applying codestarts...
+  📚 java
+  🔨 maven
+  📦 quarkus
+  📝 config-properties
+  🔧 tooling-dockerfiles
+  🔧 tooling-maven-wrapper
+  
+  -----------
+  [SUCCESS] ✅  quarkus project has been successfully generated in:
+  --> /home/willem/git/quia/services/reservation-service
+  -----------
+  Navigate into this directory and get started: quarkus dev
+  willem@linux-laptop:~/git/quia/services$
 
+  ```
+- The resulting pom still has the same version values as those from the parent pom except for `surefire-plugin.version`,
+  which has been updated in the parent pom to `3.5.0` whilst the generated code still uses `3.3.1`.
