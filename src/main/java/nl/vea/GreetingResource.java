@@ -15,8 +15,13 @@ import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Path("/hello")
 public class GreetingResource {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GreetingResource.class.getName());
 
     @ConfigProperty(name = "quia.greeting")
     String greeting;
@@ -24,6 +29,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String hello() {
+        LOGGER.debug(greeting);
         return String.format("<p>%s</p>" +
                 "<h1>Hello %s,</h1>" +
                         "<h2>%s</h2>" +
