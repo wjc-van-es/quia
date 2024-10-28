@@ -20,6 +20,7 @@
 
     <modules>
         <module>services/quia</module>
+        <module>services/reservation-service</module>
     </modules>
 
 </project>
