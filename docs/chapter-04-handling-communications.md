@@ -43,8 +43,19 @@ img {
 # 4 Handling communications
 
 ## Change of setup
-It occurred to me that we will have several (micro)services under the `~/git/quia` root dir. We, therefore, moved our
-efforts from chapter 2 & 3 and move everything into `~/git/quia/services/quia/`. All new services will be established 
-under `~/git/quia/services/` and the git repo remains under `~/git/quia`
+- It occurred to me that we will have several (micro)services under the `~/git/quia` root dir. We, therefore, moved our
+  efforts from chapter 2 & 3 and move everything into `~/git/quia/services/quia/`. 
+- All new services will be established under `~/git/quia/services/` and the git repo remains under `~/git/quia`.
+- For IntelliJ projects to be easily navigable and keep everything under a single quia-parent project umbrella, we also
+  introduced a parent pom for a `nl.vea.quia:quia-parent` project residing under the `~/git/quia` root.
+- To keep all the services as independent as possible we decided to only move the properties containing the versions
+  of the various dependencies to the parent pom and keep all the other structure under the service module pom files.
+- we can still run the quia service module in dev mode: `~/git/quia/services/quia$ quarkus dev`
+- we can still build the quia service module in isolation: `~/git/quia/services/quia$ mvn clean package -e`
+- we should be able to run a jvm version of production with 
+  `~/git/quia/services/quia$ java -jar target/quarkus-app/quarkus-run.jar`, but we experimented with oidc in dev mode
+  therefore we get '`quarkus.oidc.auth-server-url' property must be configured`. For now this isn't very important to 
+  solve.
 
 ## §4.2 Car rental Service
+
