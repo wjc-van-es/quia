@@ -44,18 +44,27 @@ img {
 
 ## Change of setup
 - It occurred to me that we will have several (micro)services under the `~/git/quia` root dir. We, therefore, moved our
-  efforts from chapter 2 & 3 and move everything into `~/git/quia/services/quia/`. 
-- All new services will be established under `~/git/quia/services/` and the git repo remains under `~/git/quia`.
-- For IntelliJ projects to be easily navigable and keep everything under a single quia-parent project umbrella, we also
-  introduced a parent pom for a `nl.vea.quia:quia-parent` project residing under the `~/git/quia` root.
+  efforts from chapter 2 & 3 into `~/git/quia/services/first-service/`, where we changed the `artifact-id` to
+  `first-service` as well, therefore
+  - `nl.vea.quia:first-service` is the full maven project (module) name (without version). 
+- All new services will be established under the `~/git/quia/services/` directory and the git repo remains under 
+  `~/git/quia`.
+- For IntelliJ projects to be easily navigable and keep everything under a single __quia__ parent project umbrella, we
+  also introduced a parent pom for a `nl.vea.quia:quia` project with `pom` type packaging residing under the
+  `~/git/quia` root.
 - To keep all the services as independent as possible we decided to only move the properties containing the versions
   of the various dependencies to the parent pom and keep all the other structure under the service module pom files.
-- we can still run the quia service module in dev mode: `~/git/quia/services/quia$ quarkus dev`
-- we can still build the quia service module in isolation: `~/git/quia/services/quia$ mvn clean package -e`
+- However, we have parent references to `nl.vea.quia:quia` in our module poms and module references in our parent pom.
+  - Hence, we can build all maven (service) modules from building the parent and 
+  - the module poms can defer the values of the properties to those defined in the parent pom.
+- we can still run the old quia service module (now named first-service) in dev mode: 
+  `~/git/quia/services/first-service$ quarkus dev`
+- we can still build the old quia service module (now named first-service) in isolation:
+  `~/git/quia/services/first-service$ mvn clean package -e`
 - we should be able to run a jvm version of production with 
-  `~/git/quia/services/quia$ java -jar target/quarkus-app/quarkus-run.jar`, but we experimented with oidc in dev mode
-  therefore we get '`quarkus.oidc.auth-server-url' property must be configured`. For now this isn't very important to 
-  solve.
+  `~/git/quia/services/first-service$ java -jar target/quarkus-app/quarkus-run.jar`, but we experimented with oidc in 
+  dev mode, therefore we get '`quarkus.oidc.auth-server-url' property must be configured`. 
+  - For now this isn't very important to solve.
 
 ## §4.2 Car rental Service
 - If we look at [quarkus-installable-extensions-list.txt](quarkus-installable-extensions-list.txt) we notice that we 
@@ -65,7 +74,7 @@ img {
   - `quarkus-smallrye-openapi` seems to be ok.
 - This is also confirmed by looking at [https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml]
 (https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml
-  - This also still has the same versions set in properties that we moved to the quia-parent pom for uniformity.
+  - This also still has the same versions set in properties that we moved to the quia pom for uniformity.
 - We therefore arrive at the following CLI command:
   ```bash
    ~/git/quia/services$ quarkus create app \
@@ -135,7 +144,7 @@ img {
   - `~/git/quia/services/reservation-service$ sdk env init`
 - Then we did a first `~/git/quia/services/reservation-service$ mvn clean package -e` to check if the maven 
   configuration works. There still isn't any source code, but dependencies are found and downloaded.
-- Also running a `mvn clean package -e` inside the maven tool window (on `quia-parent` level) works fine.
+- Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
 ### CLI details of the steps mentioned above
 
 <details>
