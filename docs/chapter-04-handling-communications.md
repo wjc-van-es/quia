@@ -132,6 +132,8 @@ img {
   ```
 
   </details>
+  
+### Modifications of the primary generated files
 - The resulting pom still has the same version values as those from the parent pom except for `surefire-plugin.version`,
   which has been updated in the parent pom to `3.5.0` whilst the generated code still uses `3.3.1`.
 - Now we start to integrate the service with its parent by modifying both pom files and 
@@ -145,7 +147,8 @@ img {
 - Then we did a first `~/git/quia/services/reservation-service$ mvn clean package -e` to check if the maven 
   configuration works. There still isn't any source code, but dependencies are found and downloaded.
 - Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
-### CLI details of the steps mentioned above
+
+#### CLI details of the steps mentioned above
 
 <details>
 
@@ -371,4 +374,51 @@ willem@linux-laptop:~/git/quia/services/reservation-service$
 
 </details>
 
-  
+## 4.3 Using the REST Client
+- We have to create a rental-service that will be consulted by the reservation-service.
+- It will only will need the `quarkus-rest-jackson` extension, hence we run:
+  `~/git/quia/services$ quarkus create app nl.vea.quia:rental-service --extension quarkus-rest-jackson --no-code`
+
+<details>
+
+```bash
+willem@linux-laptop:~/git/quia/services$ quarkus create app nl.vea.quia:rental-service --extension quarkus-rest-jackson --no-code
+Looking for the newly published extensions in registry.quarkus.io
+-----------
+selected extensions: 
+- io.quarkus:quarkus-rest-jackson
+
+
+applying codestarts...
+📚 java
+🔨 maven
+📦 quarkus
+📝 config-properties
+🔧 tooling-dockerfiles
+🔧 tooling-maven-wrapper
+
+-----------
+[SUCCESS] ✅  quarkus project has been successfully generated in:
+--> /home/willem/git/quia/services/rental-service
+-----------
+Navigate into this directory and get started: quarkus dev
+willem@linux-laptop:~/git/quia/services$ 
+
+```
+
+</details>
+
+### Modifications of the primary generated files (once more)
+- The resulting pom still has the same version values as those from the parent pom except for `surefire-plugin.version`,
+  which has been updated in the parent pom to `3.5.0` whilst the generated code still uses `3.3.1`.
+- Now we start to integrate the service with its parent by modifying both pom files and
+- remove the `~/git/quia/services/rental-service/.gitignore` as this is already present for the entire repository
+  at`~/git/quia/.gitignore`
+- we still have to figure out what to do with the various `.dockerignore`, but I suspect these should be present in the
+  service root.
+- Furthermore, we created a `.sdkmanrc` file to facilitate changing to a Java 21 version.
+  - `~/git/quia/services/rental-service$ sdk use java 21.0.4-tem` and then
+  - `~/git/quia/services/rental-service$ sdk env init`
+- Then we did a first `~/git/quia/services/rental-service$ mvn clean package -e` to check if the maven
+  configuration works. There still isn't any source code, but dependencies are found and downloaded.
+- Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
