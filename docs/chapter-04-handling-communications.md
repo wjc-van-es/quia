@@ -409,8 +409,8 @@ willem@linux-laptop:~/git/quia/services$
 </details>
 
 ### Modifications of the primary generated files (once more)
-- The resulting pom still has the same version values as those from the parent pom except for `surefire-plugin.version`,
-  which has been updated in the parent pom to `3.5.0` whilst the generated code still uses `3.3.1`.
+- The generated pom now has the same `3.5.0` version  for `surefire-plugin.version` as the parent pom only the version 
+  of `quarkus.platform.version` is now `3.16.1` (instead of `3.15.1`). We update this value in the parent pom.
 - Now we start to integrate the service with its parent by modifying both pom files and
 - remove the `~/git/quia/services/rental-service/.gitignore` as this is already present for the entire repository
   at`~/git/quia/.gitignore`
