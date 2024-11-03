@@ -1,0 +1,24 @@
+meta {
+  name: reserve
+  type: http
+  seq: 3
+}
+
+post {
+  url: http:localhost:8081/reservation
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+}
+
+body:json {
+  {
+    "id": 1,
+    "carId": 3,
+    "startDay": "2022-03-10",
+    "endDay": "2022-03-14"
+  }
+}

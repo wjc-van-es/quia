@@ -1,0 +1,20 @@
+meta {
+  name: availibility
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8081/reservation/availability?endDate=2022-03-14&startDate=2022-03-10
+  body: none
+  auth: none
+}
+
+params:query {
+  endDate: 2022-03-14
+  startDate: 2022-03-10
+}
+
+headers {
+  accept: application/json
+}
