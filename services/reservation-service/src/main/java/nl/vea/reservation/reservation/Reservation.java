@@ -50,4 +50,14 @@ public class Reservation {
     public void setEndDay(LocalDate endDay) {
         this.endDay = endDay;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "\n\tid=" + id +
+                ",\n\tcarId=" + carId +
+                ",\n\tstartDay=" + startDay +
+                ",\n\tendDay=" + endDay +
+                "\n}";
+    }
 }

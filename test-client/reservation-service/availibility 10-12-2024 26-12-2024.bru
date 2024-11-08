@@ -1,0 +1,20 @@
+meta {
+  name: availibility 10-12-2024 26-12-2024
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8081/reservation/availability?endDate=2024-12-26&startDate=2024-12-10
+  body: none
+  auth: none
+}
+
+params:query {
+  endDate: 2024-12-26
+  startDate: 2024-12-10
+}
+
+headers {
+  accept: application/json
+}
