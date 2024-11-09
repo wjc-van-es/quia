@@ -66,14 +66,22 @@ img {
   dev mode, therefore we get '`quarkus.oidc.auth-server-url' property must be configured`. 
   - For now this isn't very important to solve.
 
+### Adding a service in the new setup
+- In general, we can follow the `quarkus create app` CLI calls used in the book, whereby we 
+  - always start at the `~/git/quia/services/` directory,
+  - use `nl.vea.quia:{name}-service` as the maven `groupId:artifactId` added
+  - never specify a version by adding something like `-P 3.15.1` so we get the latest stable version of 
+    `io.quarkus.platform:quarkus-bom`. 
+    - We then will try out in the parent pom if we can update all services to a newer version.
+    - 
+
 ## §4.2 Car rental Service
 - If we look at [quarkus-installable-extensions-list.txt](quarkus-installable-extensions-list.txt) we notice that we 
   have to specify different extension names then mentioned in the book MEAP V09:
   - `quarkus-rest-jackson` instead of `quarkus-resteasy-reactive-jackson`
   - `quarkus-rest-client-jackson` instead of `rest-client-reactive-jackson`
   - `quarkus-smallrye-openapi` seems to be ok.
-- This is also confirmed by looking at [https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml]
-(https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml
+- This is also confirmed by looking at [https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml](https://github.com/xstefank/quarkus-in-action/blob/main/chapter-04/4_2/reservation-service/pom.xml)
   - This also still has the same versions set in properties that we moved to the quia pom for uniformity.
 - We therefore arrive at the following CLI command:
   ```bash
@@ -374,7 +382,7 @@ willem@linux-laptop:~/git/quia/services/reservation-service$
 
 </details>
 
-## 4.3 Using the REST Client
+## §4.3 Using the REST Client
 - We have to create a rental-service that will be consulted by the reservation-service.
 - It will only will need the `quarkus-rest-jackson` extension, hence we run:
   `~/git/quia/services$ quarkus create app nl.vea.quia:rental-service --extension quarkus-rest-jackson --no-code`
@@ -411,6 +419,26 @@ willem@linux-laptop:~/git/quia/services$
 ### Modifications of the primary generated files (once more)
 - The generated pom now has the same `3.5.0` version  for `surefire-plugin.version` as the parent pom only the version 
   of `quarkus.platform.version` is now `3.16.1` (instead of `3.15.1`). We update this value in the parent pom.
+- Now we start to integrate the service with its parent by modifying both pom files and
+- remove the `~/git/quia/services/rental-service/.gitignore` as this is already present for the entire repository
+  at`~/git/quia/.gitignore`
+- we still have to figure out what to do with the various `.dockerignore`, but I suspect these should be present in the
+  service root.
+- Furthermore, we created a `.sdkmanrc` file to facilitate changing to a Java 21 version.
+  - `~/git/quia/services/rental-service$ sdk use java 21.0.4-tem` and then
+  - `~/git/quia/services/rental-service$ sdk env init`
+- Then we did a first `~/git/quia/services/rental-service$ mvn clean package -e` to check if the maven
+  configuration works. There still isn't any source code, but dependencies are found and downloaded.
+- Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
+
+## 4.5 Car Rental Inventory service (exposing GraphQL-based API)
+- Creating the new service with 
+  `~/git/quia/services$ quarkus create app nl.vea:inventory-service --extension quarkus-smallrye-graphql --no-code`
+- 
+
+### Modifications of the primary generated files (once more)
+- the version
+  of `quarkus.platform.version` is now `3.16.2` (instead of `3.16.1`). We update this value in the parent pom.
 - Now we start to integrate the service with its parent by modifying both pom files and
 - remove the `~/git/quia/services/rental-service/.gitignore` as this is already present for the entire repository
   at`~/git/quia/.gitignore`
