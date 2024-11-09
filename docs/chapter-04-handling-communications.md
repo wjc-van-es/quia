@@ -450,3 +450,90 @@ willem@linux-laptop:~/git/quia/services$
 - Then we did a first `~/git/quia/services/rental-service$ mvn clean package -e` to check if the maven
   configuration works. There still isn't any source code, but dependencies are found and downloaded.
 - Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
+
+### §4.5.1 Exposing the Inventory service over GraphQL
+- We deviated from the example in following:
+  - [`nl.vea.inventory.model.Car`](../services/inventory-service/src/main/java/nl/vea/inventory/model/Car.java) has
+    - 2 constructors (a default one is required by the GraphQL implementing framework)
+    - private properties and getters and setters
+    - equals and hashcode for proper lookup behavior in collections (based on object state not on memory address 
+      identity)
+  - [`nl.vea.inventory.service.GraphQLInventoryService`](../services/inventory-service/src/main/java/nl/vea/inventory/service/GraphQLInventoryService.java)
+    is kept simpler delegating behavior to 
+  - [`nl.vea.inventory.database.CarInventory`](../services/inventory-service/src/main/java/nl/vea/inventory/database/CarInventory.java)
+    has both the behavior implemented for
+    - Car addition in `nl.vea.inventory.database.CarInventory.addCar`
+    - Car removal in `nl.vea.inventory.database.CarInventory.remove`, which is implemented less clunky with processing
+      a single stream that is reduced to a single boolean that indicates if a car with matching licence plate number
+      was successfully removed or not.
+
+
+### §4.5.2 Invoking GraphQL operations using the UI
+- After building the service according to instructions of §4.5.1 with the deviations mentioned above
+- `~/git/quia/services/inventory-service$ quarkus dev`
+- opening in a browser [http://localhost:8083/q/dev-ui/io.quarkus.quarkus-smallrye-graphql/graphql-ui](http://localhost:8083/q/dev-ui/io.quarkus.quarkus-smallrye-graphql/graphql-ui)
+
+#### query for getting all the cars in the inventory
+- This will show all cars in the inventory
+  - You could omit car fields
+- Tou can run this after every mutation to see whether the change is visible.
+```graphql
+query {
+  cars {
+    id
+    licensePlateNumber
+    manufacturer
+    model
+  } 
+}
+```
+
+#### query for adding a new car to the inventory
+- This not really idempotent as it will introduce the same can with the same licence plate number into the inventory
+```graphql
+mutation {
+  register(
+    car: {licensePlateNumber: "xza-223",
+      manufacturer: "Peugeot",
+      model: "206"
+    }
+  ) {
+    licensePlateNumber
+    manufacturer
+    model
+  }
+}
+```
+results each time in:
+```json
+{
+  "data": {
+    "register": {
+      "licensePlateNumber": "xza-223",
+      "manufacturer": "Peugeot",
+      "model": "206"
+    }
+  }
+}
+```
+
+#### query for removing a new car from the inventory based on its licence plate number value
+- this idempotent 
+  - the first time it will return true if a matching car is in the inventory 
+  - the second time the car won't be present anymore and it will return false
+```graphql
+mutation{
+  remove(licensePlateNumber: "XYZ-666")
+}
+```
+result the second time:
+```json
+{
+  "data": {
+    "remove": false
+  }
+}
+```
+- also my modified remove implementation will remove multiple cars that were added by repetition; hence, multiple
+  cars with the same licence plate number (that will only have different unique id's) will all be removed in one
+  graphql mutation. This could be checked by repeating the first query.
