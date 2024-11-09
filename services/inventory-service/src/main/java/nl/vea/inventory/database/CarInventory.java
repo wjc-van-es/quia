@@ -5,7 +5,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import nl.vea.inventory.model.Car;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
