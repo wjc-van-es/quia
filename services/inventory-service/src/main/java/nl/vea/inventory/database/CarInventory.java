@@ -20,6 +20,13 @@ public class CarInventory {
         initialData();
     }
 
+    /**
+     * Beware this isn't idempotent: identical cars can be added, they only will have a unique id
+     * handed to them (that was auto-generated). However, cars with the same licence plate number value
+     * can be added as many times as you like.
+     * @param car
+     * @return
+     */
     public Car addCar(Car car) {
         car.setId(ids.incrementAndGet());
         cars.add(car);
@@ -27,9 +34,10 @@ public class CarInventory {
     }
 
     /**
-     * Will remove a car based on its licensePlateNumber
-     *
-     * @param licensePlateNumber should match the car's to be removed
+     * Will remove a car based on its licensePlateNumber.
+     * As {@link #addCar(Car)} isn't idempotent that could be more than one.
+     * However, we changed the implementation to remove all cars with the same licensePlateNumber.
+     * @param licensePlateNumber should match the car(s) to be removed
      * @return indicates whether removal took place. Will be false when no matching car was found.
      */
     public boolean remove(String licensePlateNumber) {
