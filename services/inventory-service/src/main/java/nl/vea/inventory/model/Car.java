@@ -9,7 +9,7 @@ public class Car {
     private String manufacturer;
     private String model;
 
-    // framework needs a default constructor
+    // framework needs a default constructor when it deserializes a Car instance from json
     public Car(){}
 
     public Car(Long id, String licensePlateNumber,

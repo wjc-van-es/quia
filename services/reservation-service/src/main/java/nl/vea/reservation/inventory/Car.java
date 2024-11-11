@@ -1,11 +1,16 @@
 package nl.vea.reservation.inventory;
 
+import java.util.Objects;
+
 public class Car {
 
     private Long id;
     private String licensePlateNumber;
     private String manufacturer;
     private String model;
+
+    // framework needs a default constructor when it deserializes a Car instance from json
+    public Car(){}
 
     public Car(Long id, String licensePlateNumber,
                String manufacturer, String model) {
@@ -45,5 +50,28 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(licensePlateNumber, car.licensePlateNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(licensePlateNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "\n\tid=" + id +
+                ",\n\tlicensePlateNumber='" + licensePlateNumber + '\'' +
+                ",\n\tmanufacturer='" + manufacturer + '\'' +
+                "\n\t, model='" + model + '\'' +
+                "\n}";
     }
 }

@@ -1,9 +1,11 @@
 package nl.vea.reservation.rest;
 
 import io.quarkus.logging.Log;
+import io.smallrye.graphql.client.GraphQLClient;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import nl.vea.reservation.inventory.Car;
+import nl.vea.reservation.inventory.GraphQLInventoryClient;
 import nl.vea.reservation.inventory.InventoryClient;
 import nl.vea.reservation.rental.RentalClient;
 import nl.vea.reservation.reservation.Reservation;
@@ -25,7 +27,7 @@ public class ReservationResource {
     private final RentalClient rentalClient;
 
     public ReservationResource(ReservationsRepository reservationsRepository,
-                               InventoryClient inventoryClient,
+                               @GraphQLClient("inventory") GraphQLInventoryClient inventoryClient,
                                @RestClient RentalClient rentalClient) {
         this.reservationsRepository = reservationsRepository;
         this.inventoryClient = inventoryClient;
