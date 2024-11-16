@@ -1,10 +1,11 @@
 <style>
 body {
   font-family: "Gentium Basic", Cardo, "Linux Libertine o", "Palatino Linotype", Cambria, serif;
-  font-size: 130% !important;
+  font-size: 100% !important;
+  padding-right: 12%;
 }
 code {
-	padding: 0 .25em;
+	padding: 0.25em;
 	
 	white-space: pre;
 	font-family: "Tlwg mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -537,3 +538,5 @@ result the second time:
 - also my modified remove implementation will remove multiple cars that were added by repetition; hence, multiple
   cars with the same licence plate number (that will only have different unique id's) will all be removed in one
   graphql mutation. This could be checked by repeating the first query.
+
+## §4.7  Adding gRPC support to your project

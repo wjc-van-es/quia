@@ -12,6 +12,12 @@ public class Car {
     // framework needs a default constructor when it deserializes a Car instance from json
     public Car(){}
 
+    public Car(String licensePlateNumber, String manufacturer, String model) {
+        this.licensePlateNumber = licensePlateNumber;
+        this.manufacturer = manufacturer;
+        this.model = model;
+    }
+
     public Car(Long id, String licensePlateNumber,
                String manufacturer, String model) {
         this.id = id;
