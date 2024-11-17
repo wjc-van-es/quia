@@ -3,6 +3,7 @@ package nl.vea.inventory.grpc;
 
 import io.quarkus.grpc.GrpcService;
 import io.quarkus.logging.Log;
+import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import nl.vea.inventory.database.CarInventory;
@@ -18,18 +19,33 @@ public class GrpcInventoryService implements InventoryService {
     @Inject
     CarInventory inventory;
 
+//    @Override
+//    public Uni<CarResponse> add(InsertCarRequest request) {
+//        // addCar will create a new id for the Car
+//        Car car = inventory.addCar(new Car(
+//                request.getLicensePlateNumber(), request.getManufacturer(), request.getModel()));
+//        Log.infof("Persisting a new car: %s", car);
+//        return Uni.createFrom().item(CarResponse.newBuilder()
+//                .setLicensePlateNumber(car.getLicensePlateNumber())
+//                .setManufacturer(car.getManufacturer())
+//                .setModel(car.getModel())
+//                .setId(car.getId())
+//                .build());
+//    }
+
     @Override
-    public Uni<CarResponse> add(InsertCarRequest request) {
-        // addCar will create a new id for the Car
-        Car car = inventory.addCar(new Car(
-                request.getLicensePlateNumber(), request.getManufacturer(), request.getModel()));
-        Log.infof("Persisting a new car: %s", car);
-        return Uni.createFrom().item(CarResponse.newBuilder()
-                .setLicensePlateNumber(car.getLicensePlateNumber())
-                .setManufacturer(car.getManufacturer())
-                .setModel(car.getModel())
-                .setId(car.getId())
-                .build());
+    public Multi<CarResponse> add(Multi<InsertCarRequest> requests) {
+        return requests
+                .map(request -> inventory.addCar(new Car(
+                        request.getLicensePlateNumber(), request.getManufacturer(), request.getModel())))
+                .onItem()
+                .invoke(car -> Log.infof("Persisting a new car: %s", car))
+                .map(car -> CarResponse.newBuilder()
+                        .setLicensePlateNumber(car.getLicensePlateNumber())
+                        .setManufacturer(car.getManufacturer())
+                        .setModel(car.getModel())
+                        .setId(car.getId())
+                        .build());
     }
 
     @Override
