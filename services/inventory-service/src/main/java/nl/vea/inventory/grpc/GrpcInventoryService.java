@@ -19,19 +19,19 @@ public class GrpcInventoryService implements InventoryService {
     @Inject
     CarInventory inventory;
 
-//    @Override
-//    public Uni<CarResponse> add(InsertCarRequest request) {
-//        // addCar will create a new id for the Car
-//        Car car = inventory.addCar(new Car(
-//                request.getLicensePlateNumber(), request.getManufacturer(), request.getModel()));
-//        Log.infof("Persisting a new car: %s", car);
-//        return Uni.createFrom().item(CarResponse.newBuilder()
-//                .setLicensePlateNumber(car.getLicensePlateNumber())
-//                .setManufacturer(car.getManufacturer())
-//                .setModel(car.getModel())
-//                .setId(car.getId())
-//                .build());
-//    }
+    @Override
+    public Uni<CarResponse> addUni(InsertCarRequest request) {
+        // addCar will create a new id for the Car
+        Car car = inventory.addCar(new Car(
+                request.getLicensePlateNumber(), request.getManufacturer(), request.getModel()));
+        Log.infof("Persisting a new car: %s", car);
+        return Uni.createFrom().item(CarResponse.newBuilder()
+                .setLicensePlateNumber(car.getLicensePlateNumber())
+                .setManufacturer(car.getManufacturer())
+                .setModel(car.getModel())
+                .setId(car.getId())
+                .build());
+    }
 
     @Override
     public Multi<CarResponse> add(Multi<InsertCarRequest> requests) {

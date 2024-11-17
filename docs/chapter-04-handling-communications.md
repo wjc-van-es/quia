@@ -540,4 +540,24 @@ result the second time:
   cars with the same licence plate number (that will only have different unique id's) will all be removed in one
   graphql mutation. This could be checked by repeating the first query.
 
-## §4.7  Adding gRPC support to your project
+## §4.8  Implementing a gRPC service
+
+### §4.8.2 Using a gRPC client with Quarkus
+- Creating the new CLI-app with
+  `~/git/quia/services$ quarkus create app nl.vea.quia:inventory-cli --extension quarkus-grpc --no-code`
+
+### Modifications of the primary generated files (once more)
+- the version
+  of `quarkus.platform.version` is now `3.16.3` (instead of `3.16.2`). We update this value in the parent pom.
+- Now we start to integrate the service with its parent by modifying both pom files and
+- remove the `~/git/quia/services/inventory-cli/.gitignore` as this is already present for the entire repository
+  at`~/git/quia/.gitignore`
+- we still have to figure out what to do with the various `.dockerignore`, but I suspect these should be present in the
+  service root.
+- Furthermore, we created a `.sdkmanrc` file to facilitate changing to a Java 21 version.
+  - `~/git/quia/services/inventory-cli$ sdk use java 21.0.4-tem` and then
+  - `~/git/quia/services/inventory-cli$ sdk env init`
+- Then we did a first `~/git/quia/services/inventory-cli$ mvn clean package -e` to check if the maven
+  configuration works. There still isn't any source code, but dependencies are found and downloaded.
+- Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
+
