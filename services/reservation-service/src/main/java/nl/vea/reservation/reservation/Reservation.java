@@ -52,6 +52,22 @@ public class Reservation {
     }
 
     @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Reservation that)) return false;
+
+        return id.equals(that.id) && carId.equals(that.carId) && startDay.equals(that.startDay) && endDay.equals(that.endDay);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + carId.hashCode();
+        result = 31 * result + startDay.hashCode();
+        result = 31 * result + endDay.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Reservation{" +
                 "\n\tid=" + id +
