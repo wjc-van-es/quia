@@ -1,5 +1,6 @@
 package nl.vea.quia.users;
 
+import io.quarkus.logging.Log;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 import jakarta.inject.Inject;
@@ -21,8 +22,13 @@ public class WhoAmIResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get(){
-        String userId = securityContext.getAuthenticationScheme() != null
-                ? securityContext.getUserPrincipal().getName() : null;
-        return whoami.data("name", userId);
+        var scheme = securityContext.getAuthenticationScheme();
+        var userPrincipal = securityContext.getUserPrincipal();
+        var info = securityContext.isSecure();
+        Log.infof("securityContext %s with authenticationScheme %s and userPrincipal %s.", securityContext,
+                scheme, userPrincipal);
+        String userId = userPrincipal != null
+                ? userPrincipal.getName() : null;
+        return whoami.data("name", userId).data("userPrincipal", userPrincipal);
     }
 }
