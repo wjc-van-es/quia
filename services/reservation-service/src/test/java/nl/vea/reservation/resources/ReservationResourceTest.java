@@ -1,10 +1,12 @@
 package nl.vea.reservation.resources;
 
-import io.restassured.RestAssured;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
+import io.quarkus.test.junit.DisabledOnIntegrationTest;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import nl.vea.reservation.inventory.Car;
 import nl.vea.reservation.reservation.Reservation;
 import nl.vea.reservation.rest.ReservationResource;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @QuarkusTest
 public class ReservationResourceTest {
@@ -21,6 +25,11 @@ public class ReservationResourceTest {
     @TestHTTPEndpoint(ReservationResource.class)
     @TestHTTPResource
     URL reservationResource;
+
+    @TestHTTPEndpoint(ReservationResource.class)
+    @TestHTTPResource("availability")
+    URL availability;
+
 
     @Test
     public void testReservationIds() {
@@ -39,5 +48,60 @@ public class ReservationResourceTest {
                 .then()
                 .statusCode(200)
                 .body("id", notNullValue());
+    }
+
+    @DisabledOnIntegrationTest(forArtifactTypes = DisabledOnIntegrationTest.ArtifactType.NATIVE_BINARY)
+    @Test
+    public void testWhenCarIsReservedThenNoLongerAvailable(){
+        // Given: inventory contains single car
+// QuarkusMock.installMockForInstance call gives
+// java.lang.RuntimeException: interface nl.vea.reservation.inventory.GraphQLInventoryClient is not a normal scoped
+// CDI bean, make sure the bean is a normal scope like @ApplicationScoped or @RequestScoped
+//        GraphQLInventoryClient mock = Mockito.mock(GraphQLInventoryClient.class);
+//        Car peugeot = new Car(1L, "SPQR001", "Peugeot", "206");
+//        Mockito.when(mock.allCars()).thenReturn(Collections.singletonList(peugeot));
+//        QuarkusMock.installMockForInstance(mock, GraphQLInventoryClient.class);
+
+        String startDate = "2022-01-01";
+        String endDate = "2022-01-10";
+
+        // List available cars for our requested timeslot and choose one
+        Car[] cars = RestAssured.given()
+                .queryParam("startDate", startDate)
+                .queryParam("endDate", endDate)
+                .when().get(availability)
+                .then().statusCode(200)
+                .extract().as(Car[].class);
+        assertNotNull(cars);
+        assertEquals(1, cars.length);
+
+        Car car = cars[0];
+
+        //Prepare the reservation
+        Reservation reservation = new Reservation();
+        reservation.setCarId(car.getId());
+        reservation.setStartDay(LocalDate.parse(startDate));
+        reservation.setEndDay(LocalDate.parse(endDate));
+
+        // when submitting the reservation
+        RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(reservation)
+                .when()
+                .post(reservationResource)
+                .then()
+                .statusCode(200)
+                .body("carId", is(car.getId().intValue())); // then carId matches
+
+        // then the car is not available for the reservation dates
+        RestAssured.given()
+                .queryParam("startDate", startDate)
+                .queryParam("endDate", endDate)
+                .when()
+                .get(availability)
+                .then()
+                .statusCode(200)
+                .body(STR."findAll { car -> car.getId() == \{ car.getId()} }", hasSize(0));
+//                .body(STR."findAll { car -> car.getId() == " + car.getId()+ " }", hasSize(0));
     }
 }

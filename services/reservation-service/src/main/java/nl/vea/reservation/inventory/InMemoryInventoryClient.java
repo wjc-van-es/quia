@@ -1,10 +1,11 @@
 package nl.vea.reservation.inventory;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Singleton;
 
 import java.util.List;
 
-@Singleton
+@ApplicationScoped
 public class InMemoryInventoryClient implements InventoryClient {
 
     private static final List<Car> ALL_CARS = List.of(
