@@ -24,6 +24,7 @@
         <module>services/rental-service</module>
         <module>services/inventory-service</module>
         <module>services/inventory-cli</module>
+        <module>services/users-service</module>
     </modules>
 
 </project>
