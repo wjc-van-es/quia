@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Who am I?</title>
-</head>
-<body>
-    <p>Hello {name ?: 'anonymous'}!</p>
-    <p>debug userPrincipal info: {userPrincipal ?: 'no info available'}</p>
-    <a href="/logout">Log out</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Who am I?</title>
+        <link rel="stylesheet" href="http://localhost:8080/simple.css">
+    </head>
+    <body>
+        <h1>Current logged-in user</h1>
+        <p>Hello {name ?: 'anonymous'}!</p>
+        <p>debug userPrincipal info: {userPrincipal ?: 'no info available'}</p>
+        <a href="/logout">Log out</a>
+    </body>
 </html>

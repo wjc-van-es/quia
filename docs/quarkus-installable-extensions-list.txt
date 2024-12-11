@@ -475,7 +475,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-logging-json                               Logging JSON                                                 3.17.3                    https://quarkus.io/guides/logging#json-logging
   quarkus-logging-json                               Logging JSON Jackson                                         3.1.0                     
   quarkus-logging-logback                            Logging Logback                                              1.1.2                     
-  quarkus-logging-manager                            Logging Manager                                              3.3.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-logging-manager/dev/index.html
+  quarkus-logging-manager                            Logging Manager                                              3.3.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-logging-manager/dev/index.html
   quarkus-logging-sentry                             Logging Sentry                                               2.0.7                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-logging-sentry/dev/index.html
   quarkus-logging-splunk                             Logging Splunk                                               4.0.2                     https://docs.quarkiverse.io/quarkus-logging-splunk/dev/index.html
   quarkus-lucene                                     Lucene                                                       2.3.0                     https://github.com/quarkiverse/quarkus-lucene
@@ -488,7 +488,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-messaging-amqp                             Messaging - AMQP Connector                                   3.17.3                    https://quarkus.io/guides/amqp
 ✬ quarkus-messaging-kafka                            Messaging - Kafka Connector                                  3.17.3                    https://quarkus.io/guides/kafka-getting-started
 ✬ quarkus-messaging-mqtt                             Messaging - MQTT Connector                                   3.17.3                    
-  quarkus-messaging-nats-jetstream                   Reactive Messaging Nats Jetstream                            3.17.4                    https://docs.quarkiverse.io/quarkus-reactive-messaging-nats-jetstream/dev/
+  quarkus-messaging-nats-jetstream                   Reactive Messaging Nats Jetstream                            3.17.5                    https://docs.quarkiverse.io/quarkus-reactive-messaging-nats-jetstream/dev/
 ✬ quarkus-messaging-pulsar                           Messaging - Pulsar Connector                                 3.17.3                    https://quarkus.io/guides/pulsar
 ✬ quarkus-messaging-rabbitmq                         Messaging - RabbitMQ Connector                               3.17.3                    https://quarkus.io/guides/rabbitmq
   quarkus-microcks                                   Microcks                                                     0.2.6                     https://github.com/microcks/microcks-quarkus
@@ -516,7 +516,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-narayana-jta                               Narayana JTA - Transaction manager                           3.17.3                    https://quarkus.io/guides/transaction
 ✬ quarkus-narayana-lra                               Narayana LRA - LRA Participant Support                       3.17.3                    https://quarkus.io/guides/lra
 ✬ quarkus-narayana-stm                               Narayana STM - Software Transactional Memory                 3.17.3                    https://quarkus.io/guides/software-transactional-memory
-  quarkus-neo4j                                      Neo4j client                                                 5.0.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-neo4j/dev/index.html
+  quarkus-neo4j                                      Neo4j client                                                 5.0.2                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-neo4j/dev/index.html
   quarkus-ngrok                                      Ngrok                                                        1.6.0                     
 ✬ quarkus-observability-devservices                  Observability                                                3.17.3                    https://quarkus.io/guides/observability-devservices-lgtm
 ✬ quarkus-oidc                                       OpenID Connect                                               3.17.3                    https://quarkus.io/guides/security-openid-connect
@@ -611,13 +611,13 @@ Current Quarkus extensions installable:
 ✬ quarkus-resteasy-reactive-kotlin-serialization     RESTEasy Reactive Kotlin Serialization                       3.8.6                     
 ✬ quarkus-resteasy-reactive-links                    RESTEasy Reactive Links                                      3.8.6                     https://quarkus.io/guides/resteasy-reactive#web-links-support
 ✬ quarkus-resteasy-reactive-qute                     RESTEasy Reactive Qute                                       3.8.6                     
-  quarkus-roq                                        Roq                                                          1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/
-  quarkus-roq-data                                   Roq Data                                                     1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
-  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
-  quarkus-roq-generator                              Roq Generator                                                1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
-  quarkus-roq-plugin-aliases                         Roq Plugin Aliases                                           1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
-  quarkus-roq-plugin-asciidoc                        Roq Plugin Asciidoc                                          1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
-  quarkus-roq-plugin-tagging                         Roq Plugin Tagging                                           1.0.5                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
+  quarkus-roq                                        Roq                                                          1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/
+  quarkus-roq-data                                   Roq Data                                                     1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
+  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
+  quarkus-roq-generator                              Roq Generator                                                1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
+  quarkus-roq-plugin-aliases                         Roq Plugin Aliases                                           1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
+  quarkus-roq-plugin-asciidoc                        Roq Plugin Asciidoc                                          1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
+  quarkus-roq-plugin-tagging                         Roq Plugin Tagging                                           1.0.6                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
 ✬ quarkus-scala                                      Scala                                                        3.17.3                    
   quarkus-scala3                                     Scala 3                                                      1.0.0                     https://docs.quarkiverse.io/quarkus-scala3/dev/index.html
 ✬ quarkus-scheduler                                  Scheduler                                                    3.17.3                    https://quarkus.io/guides/scheduler

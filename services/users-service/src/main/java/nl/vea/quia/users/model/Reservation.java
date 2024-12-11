@@ -1,4 +1,4 @@
-package nl.vea.reservation.reservation;
+package nl.vea.quia.users.model;
 
 import java.time.LocalDate;
 

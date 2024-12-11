@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+{@java.lang.String name}
+{@java.time.LocalDate startDate}
+{@java.time.LocalDate endDate}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reservations</title>
+        <link rel="stylesheet" href="http://localhost:8080/simple.css">
+        <!--<script src="https://unpkg.com/htmx.org@2.0.3"></script>-->
+        <script src="htmx.min.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <img id="logo" src="http://localhost:8080/images/VESkader_aa_transparant_bg.png">
+            <header id="right">
+                <h1>Reservations</h1>
+                <h5>For logged-in user: {name}</h5>
+                <a href="/logout">Log out</a>
+            </header>
+        </div>
+
+    </body>
+</html>
