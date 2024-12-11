@@ -1,6 +1,7 @@
 package nl.vea.reservation.reservation;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Reservation {
 
@@ -8,7 +9,7 @@ public class Reservation {
     private Long carId;
     private LocalDate startDay;
     private LocalDate endDay;
-    private String userId;
+    private String userId = "anonymous";
 
     /**
      * Check if the given duration overlaps with this reservation
@@ -57,20 +58,24 @@ public class Reservation {
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        if (Objects.nonNull(userId)) {
+            this.userId = userId;
+        }
     }
 
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof Reservation that)) return false;
 
-        return id.equals(that.id) && carId.equals(that.carId) && startDay.equals(that.startDay) && endDay.equals(that.endDay);
+        return id.equals(that.id) && carId.equals(that.carId) && userId.equals(that.userId)
+                && startDay.equals(that.startDay) && endDay.equals(that.endDay);
     }
 
     @Override
     public int hashCode() {
         int result = id.hashCode();
         result = 31 * result + carId.hashCode();
+        result = 31 * result + userId.hashCode();
         result = 31 * result + startDay.hashCode();
         result = 31 * result + endDay.hashCode();
         return result;
@@ -81,6 +86,7 @@ public class Reservation {
         return "Reservation{" +
                 "\n\tid=" + id +
                 ",\n\tcarId=" + carId +
+                ",\n\tuserId=" + userId +
                 ",\n\tstartDay=" + startDay +
                 ",\n\tendDay=" + endDay +
                 "\n}";
