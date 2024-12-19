@@ -3,17 +3,21 @@ package nl.vea.reservation.resources;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
 import io.quarkus.test.junit.DisabledOnIntegrationTest;
+import io.quarkus.test.junit.QuarkusMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import nl.vea.reservation.inventory.Car;
+import nl.vea.reservation.inventory.GraphQLInventoryClient;
 import nl.vea.reservation.reservation.Reservation;
 import nl.vea.reservation.rest.ReservationResource;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,13 +58,11 @@ public class ReservationResourceTest {
     @Test
     public void testWhenCarIsReservedThenNoLongerAvailable(){
         // Given: inventory contains single car
-// QuarkusMock.installMockForInstance call gives
-// java.lang.RuntimeException: interface nl.vea.reservation.inventory.GraphQLInventoryClient is not a normal scoped
-// CDI bean, make sure the bean is a normal scope like @ApplicationScoped or @RequestScoped
+        // If You use the Mockito mock then first disable nl.vea.reservation.inventory.MockInventoryClient
 //        GraphQLInventoryClient mock = Mockito.mock(GraphQLInventoryClient.class);
 //        Car peugeot = new Car(1L, "SPQR001", "Peugeot", "206");
 //        Mockito.when(mock.allCars()).thenReturn(Collections.singletonList(peugeot));
-//        QuarkusMock.installMockForInstance(mock, GraphQLInventoryClient.class);
+//        QuarkusMock.installMockForType(mock, GraphQLInventoryClient.class);
 
         String startDate = "2022-01-01";
         String endDate = "2022-01-10";
