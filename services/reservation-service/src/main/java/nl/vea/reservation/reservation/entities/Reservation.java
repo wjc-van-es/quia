@@ -1,11 +1,14 @@
-package nl.vea.reservation.reservation;
+package nl.vea.reservation.reservation.entities;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Reservation {
+@Entity
+public class Reservation extends PanacheEntity {
 
-    private Long id;
     private Long carId;
     private LocalDate startDay;
     private LocalDate endDay;
@@ -22,11 +25,7 @@ public class Reservation {
     }
 
     public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        return id; // inherited from the superclass PanacheEntity
     }
 
     public Long getCarId() {
@@ -73,7 +72,7 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = id.hashCode(); // Now provided by the PanacheEntity superclass
         result = 31 * result + carId.hashCode();
         result = 31 * result + userId.hashCode();
         result = 31 * result + startDay.hashCode();
@@ -84,7 +83,7 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{" +
-                "\n\tid=" + id +
+                "\n\tid=" + id + // Now provided by the PanacheEntity superclass
                 ",\n\tcarId=" + carId +
                 ",\n\tuserId=" + userId +
                 ",\n\tstartDay=" + startDay +

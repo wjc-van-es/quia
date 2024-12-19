@@ -3,21 +3,17 @@ package nl.vea.reservation.resources;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
 import io.quarkus.test.junit.DisabledOnIntegrationTest;
-import io.quarkus.test.junit.QuarkusMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import nl.vea.reservation.inventory.Car;
-import nl.vea.reservation.inventory.GraphQLInventoryClient;
-import nl.vea.reservation.reservation.Reservation;
+import nl.vea.reservation.reservation.entities.Reservation;
 import nl.vea.reservation.rest.ReservationResource;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Collections;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;

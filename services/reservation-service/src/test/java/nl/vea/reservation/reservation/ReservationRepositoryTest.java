@@ -1,22 +1,21 @@
 package nl.vea.reservation.reservation;
 
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.transaction.Transactional;
+import nl.vea.reservation.reservation.entities.Reservation;
 import org.junit.jupiter.api.Test;
 
-import jakarta.inject.Inject;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 public class ReservationRepositoryTest {
 
-    @Inject
-    ReservationsRepository repository;
-
     @Test
+    @Transactional
     public void testCreateReservation(){
 
         // given
@@ -26,10 +25,12 @@ public class ReservationRepositoryTest {
         reservation.setCarId(384L);
 
         // when
-        reservation = repository.save(reservation);
+        Reservation.persist(reservation);
 
         // then
         assertNotNull(reservation.getId());
-        assertTrue(repository.findAll().contains(reservation));
+        Optional<Reservation> result = Reservation.findByIdOptional(reservation.getId());
+        assertTrue(result.isPresent());
+        assertEquals(reservation, result.get());
     }
 }
