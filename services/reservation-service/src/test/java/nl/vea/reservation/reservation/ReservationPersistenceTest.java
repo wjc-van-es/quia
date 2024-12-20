@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
-public class ReservationRepositoryTest {
+public class ReservationPersistenceTest {
 
     @Test
     @Transactional
@@ -25,7 +25,8 @@ public class ReservationRepositoryTest {
         reservation.setCarId(384L);
 
         // when
-        Reservation.persist(reservation);
+        reservation.persist();
+        //Reservation.persist(reservation); //Both are possible with the Panache active record pattern
 
         // then
         assertNotNull(reservation.getId());
