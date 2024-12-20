@@ -503,17 +503,19 @@ mutation {
     licensePlateNumber
     manufacturer
     model
+    id
   }
 }
 ```
-results each time in:
+results each time, where "n" is a new id value (as number not string):
 ```json
 {
   "data": {
     "register": {
       "licensePlateNumber": "xza-223",
       "manufacturer": "Peugeot",
-      "model": "206"
+      "model": "206",
+      "id": "n"
     }
   }
 }
@@ -561,3 +563,36 @@ result the second time:
   configuration works. There still isn't any source code, but dependencies are found and downloaded.
 - Also running a `mvn clean package -e` inside the maven tool window (on `quia` level) works fine.
 
+### Manual Test run in `quarkus dev` mode with the dev-ui web console
+- [http://localhost:8083/q/dev-ui/io.quarkus.quarkus-grpc/services](http://localhost:8083/q/dev-ui/io.quarkus.quarkus-grpc/services)
+![](images/dev-ui-gRPC-services.png)
+
+#### json posts for addUni or add
+```json
+{
+  "licensePlateNumber": "gRPC-adUni-000",
+  "manufacturer": "Volkswagen",
+  "model": "Polo"
+}
+```
+```json
+{
+  "licensePlateNumber": "gRPC-add-567",
+  "manufacturer": "Volkswagen",
+  "model": "Golf"
+}
+```
+```json
+{
+  "licensePlateNumber": "gRPC-add-167",
+  "manufacturer": "Citroen",
+  "model": "Cactus"
+}
+```
+
+#### json posts for remove
+```jason
+{
+  "licensePlateNumber": "XYZ-123"
+}
+```

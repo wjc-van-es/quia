@@ -1,20 +1,18 @@
 package nl.vea.inventory.database;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.ApplicationScoped;
 import nl.vea.inventory.model.Car;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
-@ApplicationScoped
+//@ApplicationScoped
 public class CarInventory {
     private List<Car> cars;
 
     public static final AtomicLong ids = new AtomicLong(0);
 
-    @PostConstruct
+    //@PostConstruct
     void initialize() {
         cars = new CopyOnWriteArrayList<>();
         initialData();

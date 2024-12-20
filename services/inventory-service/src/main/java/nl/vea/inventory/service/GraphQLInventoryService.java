@@ -1,8 +1,10 @@
 package nl.vea.inventory.service;
 
+import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
-import nl.vea.inventory.database.CarInventory;
+import jakarta.transaction.Transactional;
 import nl.vea.inventory.model.Car;
+import nl.vea.inventory.repository.CarRepository;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
@@ -12,21 +14,29 @@ import java.util.List;
 @GraphQLApi
 public class GraphQLInventoryService {
 
+//    @Inject
+//    CarInventory inventory;
+
     @Inject
-    CarInventory inventory;
+    CarRepository carRepository;
 
     @Query
     public List<Car> cars(){
-        return inventory.getCars();
+        return carRepository.listAll();
     }
 
+    @Transactional
     @Mutation
     public Car register(Car car) {
-        return inventory.addCar(car);
+        carRepository.persist(car);
+        Log.infof("Persisted %s", car);
+        return car;
     }
 
+    @Transactional
     @Mutation
     public boolean remove(String licensePlateNumber) {
-        return inventory.remove(licensePlateNumber);
+        //return inventory.remove(licensePlateNumber);
+        return carRepository.removeByLicensePlate(licensePlateNumber);
     }
 }
