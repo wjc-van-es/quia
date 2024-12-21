@@ -337,7 +337,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-cyclonedx                                  CycloneDX                                                    3.17.5                    https://quarkus.io/guides/cyclonedx
   quarkus-dapr                                       Dapr                                                         2.1.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-dapr/dev/index.html
   quarkus-dashbuilder                                Dashbuilder                                                  0.32.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-dashbuilder/dev/index.html
-  quarkus-doma                                       Doma - Database access framework                             0.0.12                    https://docs.quarkiverse.io/quarkus-doma/dev/index.html
+  quarkus-doma                                       Doma - Database access framework                             0.0.13                    https://docs.quarkiverse.io/quarkus-doma/dev/index.html
   quarkus-easy-retrofit                              Easy Retrofit                                                1.1.3                     https://docs.quarkiverse.io/quarkus-easy-retrofit/dev/index.html
 ✬ quarkus-elasticsearch-java-client                  Elasticsearch Java Client                                    3.17.5                    https://quarkus.io/guides/elasticsearch
   quarkus-elasticsearch-reactive                     Elasticsearch Reactive                                       1.1.0                     
@@ -354,7 +354,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-funqy-google-cloud-functions               Funqy Google Cloud Functions                                 3.17.5                    https://quarkus.io/guides/funqy-gcp-functions
 ✬ quarkus-funqy-http                                 Funqy HTTP Binding                                           3.17.5                    https://quarkus.io/guides/funqy-http
 ✬ quarkus-funqy-knative-events                       Funqy Knative Events Binding                                 3.17.5                    https://quarkus.io/guides/funqy-knative-events
-  quarkus-fury                                       Fury                                                         0.2.0                     https://docs.quarkiverse.io/quarkus-fury/dev/index.html
+  quarkus-fury                                       Fury                                                         0.2.1                     https://docs.quarkiverse.io/quarkus-fury/dev/index.html
   quarkus-fx                                         FX                                                           0.9.0                     https://docs.quarkiverse.io/quarkus-fx/dev/index.html
   quarkus-github-action                              GitHub Action                                                2.5.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-action/dev/index.html
   quarkus-github-api                                 GitHub API                                                   1.322.0                   https://github-api.kohsuke.org/
@@ -612,16 +612,16 @@ Current Quarkus extensions installable:
 ✬ quarkus-resteasy-reactive-kotlin-serialization     RESTEasy Reactive Kotlin Serialization                       3.8.6                     
 ✬ quarkus-resteasy-reactive-links                    RESTEasy Reactive Links                                      3.8.6                     https://quarkus.io/guides/resteasy-reactive#web-links-support
 ✬ quarkus-resteasy-reactive-qute                     RESTEasy Reactive Qute                                       3.8.6                     
-  quarkus-roq                                        Roq                                                          1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/
-  quarkus-roq-data                                   Roq Data                                                     1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
-  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
-  quarkus-roq-generator                              Roq Generator                                                1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
-  quarkus-roq-plugin-aliases                         Roq Plugin Aliases                                           1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
-  quarkus-roq-plugin-asciidoc                        Roq Plugin Asciidoc                                          1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
-  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
-  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
-  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
-  quarkus-roq-plugin-tagging                         Roq Plugin Tagging                                           1.0.7                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
+  quarkus-roq                                        Roq                                                          1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/
+  quarkus-roq-data                                   Roq Data                                                     1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
+  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
+  quarkus-roq-generator                              Roq Generator                                                1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
+  quarkus-roq-plugin-aliases                         Roq Plugin - Aliases                                         1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
+  quarkus-roq-plugin-asciidoc                        Roq Plugin - Asciidoc Java                                   1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
+  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
+  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
+  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
+  quarkus-roq-plugin-tagging                         Roq Plugin - Tagging                                         1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
 ✬ quarkus-scala                                      Scala                                                        3.17.5                    
   quarkus-scala3                                     Scala 3                                                      1.0.0                     https://docs.quarkiverse.io/quarkus-scala3/dev/index.html
 ✬ quarkus-scheduler                                  Scheduler                                                    3.17.5                    https://quarkus.io/guides/scheduler

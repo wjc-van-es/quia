@@ -1,0 +1,10 @@
+Current Quarkus extensions installed: 
+
+✬ ArtifactId                                         Extension                                                    Version                   Guide
+✬ quarkus-hibernate-orm-panache                      Hibernate ORM with Panache                                   3.17.5                    https://quarkus.io/guides/hibernate-orm-panache
+✬ quarkus-jdbc-postgresql                            JDBC Driver - PostgreSQL                                     3.17.5                    https://quarkus.io/guides/datasource
+✬ quarkus-oidc                                       OpenID Connect                                               3.17.5                    https://quarkus.io/guides/security-openid-connect
+✬ quarkus-rest-client-jackson                        REST Client Jackson                                          3.17.5                    
+✬ quarkus-rest-jackson                               REST Jackson                                                 3.17.5                    https://quarkus.io/guides/rest#json-serialisation
+✬ quarkus-smallrye-graphql-client                    SmallRye GraphQL Client                                      3.17.5                    https://quarkus.io/guides/smallrye-graphql-client
+✬ quarkus-smallrye-openapi                           SmallRye OpenAPI                                             3.17.5                    https://quarkus.io/guides/openapi-swaggerui
