@@ -1,0 +1,287 @@
+willem@mint-22:~/git/quia$ history | grep quarkus
+  116  quarkus dev
+  117  sdk install quarkus
+  119  quarkus dev
+  123  java -jar target/quarkus-app/quarkus-run.jar
+  127  java -jar target/quarkus-app/quarkus-run.jar
+  162  quarkus ext add quarkus-hibernate-orm-panache quarkus-jdbc-postgresql
+  166  history | grep quarkus
+willem@mint-22:~/git/quia$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+willem@mint-22:~/git/quia$ git commit --amend -m
+error: switch `m' requires a value
+willem@mint-22:~/git/quia$ git commit --amend -m "@mint-22 §7.6 rental-service with MongoDB finished with manual tests."
+[main d581adb] @mint-22 §7.6 rental-service with MongoDB finished with manual tests.
+ Date: Sat Dec 21 23:50:17 2024 +0100
+ 18 files changed, 302 insertions(+), 71 deletions(-)
+ delete mode 100644 services/rental-service/src/main/java/nl/vea/rental/Rental.java
+ create mode 100644 services/rental-service/src/main/java/nl/vea/rental/entities/ErrorResponse.java
+ create mode 100644 services/rental-service/src/main/java/nl/vea/rental/entities/Rental.java
+ create mode 100644 services/reservation-service/added_ext.txt
+ create mode 100644 test-client/rental-service/Active Rentals.bru
+ create mode 100644 test-client/rental-service/All Rentals.bru
+ create mode 100644 test-client/rental-service/Create userId 1 reservationId 1.bru
+ create mode 100644 test-client/rental-service/Create userId 1 reservationId 2.bru
+ create mode 100644 test-client/rental-service/End nonexistent userId 2 reservationId 15.bru
+ create mode 100644 test-client/rental-service/End userId 1 reservationId 1.bru
+ create mode 100644 test-client/rental-service/bruno.json
+willem@mint-22:~/git/quia$ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+nothing to commit, working tree clean
+willem@mint-22:~/git/quia$ git push --force-with-lease quia main
+fatal: 'quia' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+willem@mint-22:~/git/quia$ git push --force-with-lease quia.git main
+fatal: 'quia.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+willem@mint-22:~/git/quia$ git push --force-with-lease git@github.com:wjc-van-es/quia.git main
+To github.com:wjc-van-es/quia.git
+ ! [rejected]        main -> main (stale info)
+error: failed to push some refs to 'github.com:wjc-van-es/quia.git'
+willem@mint-22:~/git/quia$ git push --force git@github.com:wjc-van-es/quia.git main
+Enumerating objects: 65, done.
+Counting objects: 100% (65/65), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (33/33), done.
+Writing objects: 100% (41/41), 6.22 KiB | 3.11 MiB/s, done.
+Total 41 (delta 11), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (11/11), completed with 10 local objects.
+To github.com:wjc-van-es/quia.git
+ + 9697fac...d581adb main -> main (forced update)
+willem@mint-22:~/git/quia$ wget -qO- https://www.mongodb.org/static/pgp/server-8.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-8.0.asc
+[sudo] password for willem:
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQINBGWgEhwBEADJpjwR+5n6na3tqZ6ueHsW/U8lvcvMFZ1DYNo+/JhrNjHkZ7HR
+Wbc2IzWej1zqTtctSKZvrCkPGZxiDsKB5xta/NVtnpjSuV02Gp0F6hf0gnvark04
+HnEFaV2w15Tyr8Z4KHRDbdja6h/24t4tR0KkRzxh5U7FwLL8BpK2drbTog9FBMy+
+lqYDfOLHx6JDeOMC7eSNe/jJsAiuVcP/y+vQbLuMYAaMPSvJoidRIQ88oFLoUlVZ
+NxRt3Z+7w5HMIN2laKp+ItxloPWGBdcHU4o2ZnWgsVT8Y/a+RED75DDbAQ6lS3fV
+sSlmQLExcf75qOPy34XNv3gWP4tbfIXXt8olflF8hwHggmKZzEImnzEozPabDsN7
+nkhHZEWhGcPRcuHbFOqcirV1sfsKK1gOsTbxS00iD3OivOFCQqujF196cal/utTd
+WvyJvY2o35eE0WFcDdstU7UiP39usE+jk4jbQS5WbMYk9yyZCCbd74T7eYAfSEXg
+GqrE1O6pjMmwbEjHwHDkbn/2WGvOSgWKHJVSh8V1K5ijlAd/9SCbsY0Yh5K3G16k
+gnzHZ7OuQItfvMlPLQA7P2cPj/bGkO2ayyZU4+9rCsXlHw4Cee+u1APFSO2rj1TE
+vX80grtqXNmj6nV21nIiXASvBKRO3kU4t8yV9i8EEREKYx/gLIl5i3PYGwARAQAB
+tDdNb25nb0RCIDguMCBSZWxlYXNlIFNpZ25pbmcgS2V5IDxwYWNrYWdpbmdAbW9u
+Z29kYi5jb20+iQJOBBMBCgA4FiEESwdSwbyiOMC07hTcQd4Fik59ygUFAmWgEhwC
+GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQQd4Fik59ygWy4w//e+IQ5eFT
+rlowx196DaInUTiv+aMkkN5hAtJDMicV9+ZDChEfqqQH1WJuUUKfX00AeEDocQnI
+LgESy0+rp2FoRPG5bXaJXTv6xQkqIMQQMNMkG4Nx3AxggRVkzd2arOr9FBwcnmf0
+7xu9EsMJndmzTsDO+ohWnNb0ILSdPVKDafpfg4ycBWDZT7ynD6TT0JpG8WWJi8F+
+9GR4k4CpBujk49POZbjeVDOuP/o/tosmEO9jo03C/u1qNuVVXy6vvTB6WjO79QTX
+OlSTLHAiu9N/VknG1B7lW15X1yl3jl3vZ33N68ncXUW2gAJi7Nh6H6RSm288IC4i
+hSmSBFabffQtwOTVE0CaKge2nU4Oc3Tp2h8moEgi81vYT/CioMt6wmHTzY0grcfF
+WLwtDMFJ0VQYRrUIOMmYBFyRp2jdRYYkA+vlL+6DNAAjCeuvwCs3PqUhgFvHNxVv
+bumKiRMIOoNUwpLEKsEq8jBs+U+gUfa+CmBn67G9mjDRu4cXXrtItooxnbfM/m0i
+hVnssTC1arrx273zFepLosPvgrT0TS7tnyXbzuq5mo0zD1fSj4kuSS9V/SSy9fWF
+LAtHiNQJkjzGFxu0/9dyQyX6C523uvfdcOzpObTyjBeGKqmEEf0lF5OYLDlkk2Sm
+iGa6i2oLaGzGaQZDpdqyQZiYpQEYw9xN+8g=
+=J31U
+-----END PGP PUBLIC KEY BLOCK-----
+willem@mint-22:~/git/quia$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+willem@mint-22:~/git/quia$ sudo apt-get update
+Hit:1 http://mirror.nforce.com/pub/linux/ubuntu noble InRelease
+Get:2 http://mirror.nforce.com/pub/linux/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://mirror.nforce.com/pub/linux/ubuntu noble-backports InRelease [126 kB]
+Hit:4 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:5 http://repository.spotify.com stable InRelease
+Ign:6 https://ftp.nluug.nl/os/Linux/distr/linuxmint/packages wilma InRelease
+Hit:7 https://ftp.nluug.nl/os/Linux/distr/linuxmint/packages wilma Release
+Hit:8 http://security.ubuntu.com/ubuntu noble-security InRelease
+Get:9 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 InRelease [3.005 B]
+Get:10 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/main amd64 Packages [759 kB]
+Get:11 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/main i386 Packages [373 kB]
+Get:12 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/main amd64 Components [151 kB]
+Get:13 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:14 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/universe amd64 Packages [965 kB]
+Get:15 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/universe i386 Packages [593 kB]
+Get:16 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/universe amd64 Components [309 kB]
+Get:17 http://mirror.nforce.com/pub/linux/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:18 http://mirror.nforce.com/pub/linux/ubuntu noble-backports/main amd64 Components [208 B]
+Get:19 http://mirror.nforce.com/pub/linux/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:20 http://mirror.nforce.com/pub/linux/ubuntu noble-backports/universe amd64 Components [11,7 kB]
+Get:21 http://mirror.nforce.com/pub/linux/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:23 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0/multiverse amd64 Packages [17,9 kB]
+Get:24 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0/multiverse arm64 Packages [18,0 kB]
+Fetched 3.455 kB in 1s (2.998 kB/s)
+Reading package lists... Done
+willem@mint-22:~/git/quia$ sudo apt-get install -y mongodb-mongosh
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  mongodb-mongosh
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 54,2 MB of archives.
+After this operation, 267 MB of additional disk space will be used.
+Get:1 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0/multiverse amd64 mongodb-mongosh amd64 2.3.7 [54,2 MB]
+Fetched 54,2 MB in 4s (13,7 MB/s)
+Selecting previously unselected package mongodb-mongosh.
+(Reading database ... 496261 files and directories currently installed.)
+Preparing to unpack .../mongodb-mongosh_2.3.7_amd64.deb ...
+Unpacking mongodb-mongosh (2.3.7) ...
+Setting up mongodb-mongosh (2.3.7) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+willem@mint-22:~/git/quia$ docker ps
+CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+7c7fd5e7b9b3   mongo:7.0                    "docker-entrypoint.s…"   12 minutes ago   Up 12 minutes   0.0.0.0:32783->27017/tcp, [::]:32783->27017/tcp   zealous_leavitt
+7f8dbdda4c36   testcontainers/ryuk:0.11.0   "/bin/ryuk"              12 minutes ago   Up 12 minutes   0.0.0.0:32782->8080/tcp, [::]:32782->8080/tcp     testcontainers-ryuk-d0db0aa9-7c49-4e8c-a8ae-3a25673db554
+willem@mint-22:~/git/quia$ mongosh --port 32783 rental --eval "db.Rental.find({})"
+
+willem@mint-22:~/git/quia$ mongosh --help
+
+  $ mongosh [options] [db address] [file names (ending in .js or .mongodb)]
+
+  Options:
+
+    -h, --help                                 Show this usage information
+    -f, --file [arg]                           Load the specified mongosh script
+        --host [arg]                           Server to connect to
+        --port [arg]                           Port to connect to
+        --build-info                           Show build information
+        --version                              Show version information
+        --quiet                                Silence output from the shell during the connection process
+        --shell                                Run the shell after executing files
+        --nodb                                 Don't connect to mongod on startup - no 'db address' [arg] expected
+        --norc                                 Will not run the '.mongoshrc.js' file on start up
+        --eval [arg]                           Evaluate javascript
+        --json[=canonical|relaxed]             Print result of --eval as Extended JSON, including errors
+        --retryWrites[=true|false]             Automatically retry write operations upon transient network errors (Default: true)
+
+  Authentication Options:
+
+    -u, --username [arg]                       Username for authentication
+    -p, --password [arg]                       Password for authentication
+        --authenticationDatabase [arg]         User source (defaults to dbname)
+        --authenticationMechanism [arg]        Authentication mechanism
+        --awsIamSessionToken [arg]             AWS IAM Temporary Session Token ID
+        --gssapiServiceName [arg]              Service name to use when authenticating using GSSAPI/Kerberos
+        --sspiHostnameCanonicalization [arg]   Specify the SSPI hostname canonicalization (none or forward, available on Windows)
+        --sspiRealmOverride [arg]              Specify the SSPI server realm (available on Windows)
+
+  TLS Options:
+
+        --tls                                  Use TLS for all connections
+        --tlsCertificateKeyFile [arg]          PEM certificate/key file for TLS
+        --tlsCertificateKeyFilePassword [arg]  Password for key in PEM file for TLS
+        --tlsCAFile [arg]                      Certificate Authority file for TLS
+        --tlsAllowInvalidHostnames             Allow connections to servers with non-matching hostnames
+        --tlsAllowInvalidCertificates          Allow connections to servers with invalid certificates
+        --tlsCertificateSelector [arg]         TLS Certificate in system store (Windows and macOS only)
+        --tlsCRLFile [arg]                     Specifies the .pem file that contains the Certificate Revocation List
+        --tlsDisabledProtocols [arg]           Comma separated list of TLS protocols to disable [TLS1_0,TLS1_1,TLS1_2]
+        --tlsFIPSMode                          Enable the system TLS library's FIPS mode
+
+  API version options:
+
+        --apiVersion [arg]                     Specifies the API version to connect with
+        --apiStrict                            Use strict API version mode
+        --apiDeprecationErrors                 Fail deprecated commands for the specified API version
+
+  FLE Options:
+
+        --awsAccessKeyId [arg]                 AWS Access Key for FLE Amazon KMS
+        --awsSecretAccessKey [arg]             AWS Secret Key for FLE Amazon KMS
+        --awsSessionToken [arg]                Optional AWS Session Token ID
+        --keyVaultNamespace [arg]              database.collection to store encrypted FLE parameters
+        --kmsURL [arg]                         Test parameter to override the URL of the KMS endpoint
+
+  OIDC auth options:
+
+        --oidcFlows[=auth-code,device-auth]    Supported OIDC auth flows
+        --oidcRedirectUri[=url]                Local auth code flow redirect URL [http://localhost:27097/redirect]
+        --oidcTrustedEndpoint                  Treat the cluster/database mongosh as a trusted endpoint
+        --oidcIdTokenAsAccessToken             Use ID tokens in place of access tokens for auth
+        --oidcDumpTokens[=mode]                Debug OIDC by printing tokens to mongosh's output [full|include-secrets]
+        --oidcNoNonce                          Don't send a nonce argument in the OIDC auth request
+
+  DB Address Examples:
+
+        foo                                    Foo database on local machine
+        192.168.0.5/foo                        Foo database on 192.168.0.5 machine
+        192.168.0.5:9999/foo                   Foo database on 192.168.0.5 machine on port 9999
+        mongodb://192.168.0.5:9999/foo         Connection string URI can also be used
+
+  File Names:
+
+        A list of files to run. Files must end in .js and will exit after unless --shell is specified.
+
+  Examples:
+
+        Start mongosh using 'ships' database on specified connection string:
+        $ mongosh mongodb://192.168.0.5:9999/ships
+
+  For more information on usage: https://docs.mongodb.com/mongodb-shell.
+willem@mint-22:~/git/quia$ mongosh --port 32783 rentals --eval "db.Rental.find({})"
+
+willem@mint-22:~/git/quia$ mongosh mongodb://localhost:32783/rental
+Current Mongosh Log ID: 67674e6f8f210a901b567a2a
+Connecting to:          mongodb://localhost:32783/rental?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.7
+Using MongoDB:          7.0.15
+Using Mongosh:          2.3.7
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2024-12-21T23:07:12.435+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-12-21T23:07:12.667+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2024-12-21T23:07:12.667+00:00: vm.max_map_count is too low
+------
+
+docker-rs [direct: primary] rental> use rental
+already on db rental
+docker-rs [direct: primary] rental> db.rental.find()
+
+docker-rs [direct: primary] rental> db.Rental.find()
+
+docker-rs [direct: primary] rental> find()
+ReferenceError: find is not defined
+docker-rs [direct: primary] rental> db.Rental.find({})
+
+docker-rs [direct: primary] rental> Rental.find()
+ReferenceError: Rental is not defined
+docker-rs [direct: primary] rental> db.getMongo()
+mongodb://localhost:32783/rental?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.7
+docker-rs [direct: primary] rental> db.Rentals.find({})
+[
+  {
+    _id: ObjectId('67674a3d83a3581679a3ae6a'),
+    active: false,
+    endDate: ISODate('2024-12-22T00:00:00.000Z'),
+    reservationId: Long('1'),
+    startDate: ISODate('2024-12-22T00:00:00.000Z'),
+    userId: 'user1'
+  },
+  {
+    _id: ObjectId('67674a4283a3581679a3ae6b'),
+    active: true,
+    reservationId: Long('2'),
+    startDate: ISODate('2024-12-22T00:00:00.000Z'),
+    userId: 'user1'
+  }
+]
+docker-rs [direct: primary] rental>
+
+https://www.mongodb.com/docs/mongodb-shell/install/
+https://www.mongodb.com/docs/mongodb-shell/connect/
+https://www.mongodb.com/docs/mongodb-shell/crud/read/#std-label-mongosh-read
