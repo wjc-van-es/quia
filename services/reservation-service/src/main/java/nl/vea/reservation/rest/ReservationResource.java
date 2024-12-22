@@ -5,7 +5,6 @@ import io.quarkus.logging.Log;
 import io.smallrye.graphql.client.GraphQLClient;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.SecurityContext;
@@ -19,8 +18,10 @@ import org.jboss.resteasy.reactive.RestQuery;
 
 import java.security.Principal;
 import java.time.LocalDate;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
 @Path("reservation")
 @Produces(MediaType.APPLICATION_JSON)
@@ -70,9 +71,9 @@ public class ReservationResource {
                         return rentalClient.start(persistedReservation.getUserId(), persistedReservation.getId())
                                 .onItem().invoke(rental ->
                                         Log.infof("Received confirmation of rental %s", rental))
-                                .replaceWith(persistedReservation); // this doesn't work
+                                .replaceWith(persistedReservation);
                     }
-                    return Uni.createFrom().item(persistedReservation); // this works
+                    return Uni.createFrom().item(persistedReservation);
                 }
 
         );
