@@ -1,7 +1,9 @@
 package nl.vea.reservation.rest;
 
+import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
 import io.quarkus.logging.Log;
 import io.smallrye.graphql.client.GraphQLClient;
+import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -18,6 +20,7 @@ import org.jboss.resteasy.reactive.RestQuery;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Path("reservation")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,45 +39,54 @@ public class ReservationResource {
 
     @GET
     @Path("availability")
-    public Collection<Car> availability(@RestQuery LocalDate startDate, @RestQuery LocalDate endDate){
-        List<Car> availableCars = inventoryClient.allCars();
-        Map<Long, Car> carsById = new HashMap<>();
-        for (Car car: availableCars){
-            carsById.put(car.getId(), car);
-        }
+    public Uni<Collection<Car>> availability(@RestQuery LocalDate startDate, @RestQuery LocalDate endDate){
+        Uni<List<Car>> availableCarsUni = inventoryClient.allCars();
+        Uni<List<Reservation>> reservationsUni = Reservation.listAll();
 
-        List<Reservation> reservations = Reservation.listAll();
-        for (Reservation reservation: reservations){
-            if (reservation.isReserved(startDate, endDate)){
-                carsById.remove(reservation.getCarId());
-            }
-        }
-        return carsById.values();
+        return Uni.combine().all().unis(availableCarsUni, reservationsUni)
+                .with((availableCars, reservations) -> {
+                    long[] reservedCarIds = reservations.stream()
+                            .filter(reservation -> reservation.isReserved(startDate, endDate))
+                                    .mapToLong(Reservation::getCarId)
+                                            .toArray();
+                    return availableCars.stream()
+                            // filter only cars whose ids are not in reservedCarIds are available
+                            .filter(car -> Arrays.binarySearch(reservedCarIds, car.getId()) < 0)
+                            .toList();
+
+                });
     }
 
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
-    @Transactional
-    public Reservation make(Reservation reservation) {
+    @WithTransaction
+    public Uni<Reservation> make(Reservation reservation) {
         reservation.setUserId(currentUserId());
 
-        reservation.persist();
+        return reservation.<Reservation>persist().onItem()
+                .call(persistedReservation -> {
+                    Log.infof("Saved reservation %s", persistedReservation);
+                    if (persistedReservation.getStartDay().isEqual(LocalDate.now())) {
+                        return rentalClient.start(persistedReservation.getUserId(), persistedReservation.getId())
+                                .onItem().invoke(rental ->
+                                        Log.infof("Received confirmation of rental %s", rental))
+                                .replaceWith(persistedReservation); // this doesn't work
+                    }
+                    return Uni.createFrom().item(persistedReservation); // this works
+                }
 
-        Log.infof("Saved reservation %s", reservation);
-        if (reservation.getStartDay().isEqual(LocalDate.now())) {
-            var rental = rentalClient.start(reservation.getUserId(), reservation.getId());
-            Log.infof("Received confirmation of rental %s", rental);
-        }
-
-        return reservation;
+        );
     }
 
     @GET
     @Path("all")
-    public List<Reservation> allReservations(){
-        return Reservation.<Reservation>streamAll() //generics necessary to resolve reservation.getUserId()
+    public Uni<List<Reservation>> allReservations(){
+        return Reservation.<Reservation>listAll()
+            .onItem()
+            .transform(reservations -> reservations
+                .stream()
                 .filter(reservation -> currentUserId().equals(reservation.getUserId()))
-                .toList();
+                .toList());
     }
 
     private String currentUserId() {

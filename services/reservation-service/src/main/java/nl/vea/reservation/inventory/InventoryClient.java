@@ -1,5 +1,6 @@
 package nl.vea.reservation.inventory;
 
+import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
@@ -7,5 +8,5 @@ import java.util.List;
 @ApplicationScoped
 public interface InventoryClient {
 
-    List<Car> allCars();
+    Uni<List<Car>> allCars();
 }

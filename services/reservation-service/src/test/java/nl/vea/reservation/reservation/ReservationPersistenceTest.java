@@ -1,6 +1,9 @@
 package nl.vea.reservation.reservation;
 
+import io.quarkus.logging.Log;
+import io.quarkus.test.hibernate.reactive.panache.TransactionalUniAsserter;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.vertx.RunOnVertxContext;
 import jakarta.transaction.Transactional;
 import nl.vea.reservation.reservation.entities.Reservation;
 import org.junit.jupiter.api.Test;
@@ -15,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ReservationPersistenceTest {
 
     @Test
-    @Transactional
-    public void testCreateReservation(){
+    @RunOnVertxContext
+    public void testCreateReservation(TransactionalUniAsserter asserter){
 
         // given
         Reservation reservation = new Reservation();
@@ -25,13 +28,20 @@ public class ReservationPersistenceTest {
         reservation.setCarId(384L);
 
         // when
-        reservation.persist();
-        //Reservation.persist(reservation); //Both are possible with the Panache active record pattern
+        asserter.<Reservation>assertThat(() -> reservation.persist(),
+                persistedReservation -> {
+                    assertNotNull(persistedReservation.getId());
+                    asserter.putData("persistedReservation", persistedReservation);
+                });
 
         // then
-        assertNotNull(reservation.getId());
-        Optional<Reservation> result = Reservation.findByIdOptional(reservation.getId());
-        assertTrue(result.isPresent());
-        assertEquals(reservation, result.get());
+        asserter.assertThat(() -> Reservation.<Reservation>findById(
+                ((Reservation)asserter.getData("persistedReservation")).getId()),
+                retrievedReservation -> {
+                    Log.infof("retrieved Reservation: %s", retrievedReservation);
+                    assertNotNull(retrievedReservation);
+                    assertEquals(asserter.getData("persistedReservation"), retrievedReservation);
+                    assertEquals(384L, retrievedReservation.getCarId());
+                });
     }
 }
