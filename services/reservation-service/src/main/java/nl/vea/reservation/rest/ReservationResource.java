@@ -4,20 +4,24 @@ import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
 import io.quarkus.logging.Log;
 import io.smallrye.graphql.client.GraphQLClient;
 import io.smallrye.mutiny.Uni;
+import io.smallrye.reactive.messaging.MutinyEmitter;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.SecurityContext;
+import nl.vea.reservation.billing.Invoice;
 import nl.vea.reservation.inventory.Car;
 import nl.vea.reservation.inventory.GraphQLInventoryClient;
 import nl.vea.reservation.inventory.InventoryClient;
 import nl.vea.reservation.rental.RentalClient;
 import nl.vea.reservation.reservation.entities.Reservation;
+import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.resteasy.reactive.RestQuery;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -26,11 +30,17 @@ import java.util.Objects;
 @Path("reservation")
 @Produces(MediaType.APPLICATION_JSON)
 public class ReservationResource {
+    public static final double STANDARD_RATE_PER_DAY = 19.99;
+
     private final InventoryClient inventoryClient;
     private final RentalClient rentalClient;
 
     @Inject
     private SecurityContext securityContext;
+
+    @Inject
+    @Channel("invoices")
+    MutinyEmitter<Invoice> invoiceEmitter;
 
     public ReservationResource(@GraphQLClient("inventory") GraphQLInventoryClient inventoryClient,
                                @RestClient RentalClient rentalClient) {
@@ -67,13 +77,21 @@ public class ReservationResource {
         return reservation.<Reservation>persist().onItem()
                 .call(persistedReservation -> {
                     Log.infof("Saved reservation %s", persistedReservation);
+
+                    Uni<Void> invoiceUni = invoiceEmitter
+                            .send(new Invoice(reservation, computePrice(reservation)))
+                            .onFailure()
+                            .invoke(throwable -> Log.errorf("Couldn't create the invoice for %s. %s%n",
+                                    persistedReservation, throwable));
+
                     if (persistedReservation.getStartDay().isEqual(LocalDate.now())) {
-                        return rentalClient.start(persistedReservation.getUserId(), persistedReservation.getId())
+                        return invoiceUni.chain(() ->
+                                rentalClient.start(persistedReservation.getUserId(), persistedReservation.getId())
                                 .onItem().invoke(rental ->
                                         Log.infof("Received confirmation of rental %s", rental))
-                                .replaceWith(persistedReservation);
+                                .replaceWith(persistedReservation));
                     }
-                    return Uni.createFrom().item(persistedReservation);
+                    return invoiceUni.replaceWith(persistedReservation);
                 }
 
         );
@@ -97,5 +115,9 @@ public class ReservationResource {
         } else {
            return "anonymous";
         }
+    }
+
+    private double computePrice(Reservation reservation) {
+        return (ChronoUnit.DAYS.between(reservation.getStartDay(), reservation.getEndDay()) + 1) * STANDARD_RATE_PER_DAY;
     }
 }

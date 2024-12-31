@@ -1,4 +1,5 @@
 Listing extensions (default action, see --help).
+Looking for the newly published extensions in registry.quarkus.io
 Current Quarkus extensions installable: 
 
 ✬ ArtifactId                                         Extension                                                    Version                   Guide
@@ -300,12 +301,13 @@ Current Quarkus extensions installable:
   quarkus-authzed-client                             Authzed Client                                               0.7.0                     
 ✬ quarkus-avro                                       Apache Avro                                                  3.17.5                    https://quarkus.io/guides/kafka-schema-registry-avro
 ✬ quarkus-awt                                        AWT                                                          3.17.5                    
-  quarkus-azure-app-configuration                    Quarkus Azure App Configuration                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-app-configuration.html
-  quarkus-azure-cosmos                               Quarkus Support Azure Cosmos DB                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-cosmos.html
+  quarkus-azure-app-configuration                    Quarkus Azure App Configuration                              1.0.8                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-app-configuration.html
+  quarkus-azure-cosmos                               Quarkus Support Azure Cosmos DB                              1.0.8                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-cosmos.html
+  quarkus-azure-eventhubs                            Quarkus Support Azure Event Hubs                             1.0.8                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-eventhubs.html
 ✬ quarkus-azure-functions                            Azure Functions                                              3.17.5                    https://quarkus.io/guides/azure-functions
 ✬ quarkus-azure-functions-http                       Azure Functions HTTP                                         3.17.5                    https://quarkus.io/guides/azure-functions-http
-  quarkus-azure-keyvault                             Quarkus Support Azure Key Vault                              1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-key-vault.html
-  quarkus-azure-storage-blob                         Quarkus Support Azure Storage Blob                           1.0.7                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-storage-blob.html
+  quarkus-azure-keyvault                             Quarkus Support Azure Key Vault                              1.0.8                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-key-vault.html
+  quarkus-azure-storage-blob                         Quarkus Support Azure Storage Blob                           1.0.8                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-storage-blob.html
   quarkus-barcode4j                                  Barcode4J                                                    1.0.0                     https://docs.quarkiverse.io/quarkus-barcode/dev/index.html
   quarkus-bon-jova                                   Bon Jova 🎸                                                  0.7.0                     
   quarkus-bucket4j                                   Bucket4j                                                     1.0.4                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-bucket4j/dev/index.html
@@ -423,7 +425,7 @@ Current Quarkus extensions installable:
   quarkus-jdbc-singlestore                           JDBC Driver - Singlestore                                    1.0.2                     https://docs.quarkiverse.io/quarkus-jdbc-singlestore/dev/
   quarkus-jdbc-sqlite                                JDBC Driver - Sqlite                                         3.0.11                    
   quarkus-jdbi                                       Jdbi                                                         1.5.1                     
-  quarkus-jdiameter                                  Quarkus JDiameter                                            2.1.2                     
+  quarkus-jdiameter                                  Quarkus JDiameter                                            2.1.3                     
 ✬ quarkus-jfr                                        Java Flight Recorder (JFR)                                   3.17.5                    https://quarkus.io/guides/jfr
   quarkus-jgit                                       JGit                                                         3.3.3                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-jgit/dev/index.html
   quarkus-jgrapht                                    JGraphT                                                      1.4.1                     https://jgrapht.org/guide/UserOverview
@@ -547,7 +549,7 @@ Current Quarkus extensions installable:
   quarkus-playwright                                 Playwright                                                   2.0.0                     https://quarkiverse.github.io/quarkiverse-docs/playwright/dev/
   quarkus-poi                                        Apache POI                                                   2.1.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-poi/dev/
   quarkus-pooled-jms                                 Messaginghub Pooled JMS                                      2.6.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-pooled-jms/dev/index.html
-  quarkus-presidio                                   Presidio                                                     0.3.0                     https://docs.quarkiverse.io/presidio/dev/
+  quarkus-presidio                                   Presidio                                                     0.4.0                     https://docs.quarkiverse.io/quarkus-presidio/dev/
   quarkus-prettytime                                 PrettyTime                                                   2.0.10                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-prettytime/dev/index.html
   quarkus-primefaces                                 PrimeFaces                                                   3.15.0-RC2                https://quarkiverse.github.io/quarkiverse-docs/quarkus-primefaces/dev/
 ✬ quarkus-qpid-jms                                   AMQP 1.0 JMS client - Apache Qpid JMS                        2.7.1                     https://quarkus.io/guides/jms
@@ -612,16 +614,16 @@ Current Quarkus extensions installable:
 ✬ quarkus-resteasy-reactive-kotlin-serialization     RESTEasy Reactive Kotlin Serialization                       3.8.6                     
 ✬ quarkus-resteasy-reactive-links                    RESTEasy Reactive Links                                      3.8.6                     https://quarkus.io/guides/resteasy-reactive#web-links-support
 ✬ quarkus-resteasy-reactive-qute                     RESTEasy Reactive Qute                                       3.8.6                     
-  quarkus-roq                                        Roq                                                          1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/
-  quarkus-roq-data                                   Roq Data                                                     1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
-  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
-  quarkus-roq-generator                              Roq Generator                                                1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
-  quarkus-roq-plugin-aliases                         Roq Plugin - Aliases                                         1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
-  quarkus-roq-plugin-asciidoc                        Roq Plugin - Asciidoc Java                                   1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
-  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
-  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
-  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
-  quarkus-roq-plugin-tagging                         Roq Plugin - Tagging                                         1.0.8                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
+  quarkus-roq                                        Roq                                                          1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/
+  quarkus-roq-data                                   Roq Data                                                     1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
+  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
+  quarkus-roq-generator                              Roq Generator                                                1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
+  quarkus-roq-plugin-aliases                         Roq Plugin - Aliases                                         1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
+  quarkus-roq-plugin-asciidoc                        Roq Plugin - Asciidoc Java                                   1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
+  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
+  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
+  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
+  quarkus-roq-plugin-tagging                         Roq Plugin - Tagging                                         1.1.1                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
 ✬ quarkus-scala                                      Scala                                                        3.17.5                    
   quarkus-scala3                                     Scala 3                                                      1.0.0                     https://docs.quarkiverse.io/quarkus-scala3/dev/index.html
 ✬ quarkus-scheduler                                  Scheduler                                                    3.17.5                    https://quarkus.io/guides/scheduler
