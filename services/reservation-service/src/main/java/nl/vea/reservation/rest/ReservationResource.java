@@ -108,6 +108,12 @@ public class ReservationResource {
                 .toList());
     }
 
+    @GET
+    @Path("{id}")
+    public Uni<Reservation> getById(Long id){
+        return Reservation.findById(id);
+    }
+
     private String currentUserId() {
         Principal userPrincipal = securityContext.getUserPrincipal();
         if(Objects.nonNull(userPrincipal)){

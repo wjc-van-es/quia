@@ -11,10 +11,6 @@ import java.util.Optional;
 @ApplicationScoped
 public class CarRepository implements PanacheRepository<Car> {
 
-//    public Optional<Car> findByLicensePlateNumberOptional(String licencePlateNumber){
-//        return find("licencePlateNumber", licencePlateNumber).firstResultOptional();
-//    }
-
     @Transactional
     public boolean removeByLicensePlate(String licensePlateNumber){
         return find("licensePlateNumber", licensePlateNumber)

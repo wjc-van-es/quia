@@ -14,9 +14,6 @@ import java.util.List;
 @GraphQLApi
 public class GraphQLInventoryService {
 
-//    @Inject
-//    CarInventory inventory;
-
     @Inject
     CarRepository carRepository;
 
