@@ -25,6 +25,10 @@ public class Reservation {
         return endDay;
     }
 
+    public void setEndDay(LocalDate endDay) {
+        this.endDay = endDay;
+    }
+
     public String getUserId() {
         return userId;
     }
