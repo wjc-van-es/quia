@@ -27,6 +27,8 @@ public class RentalResource {
     public static final double STANDARD_REFUND_RATE_PER_DAY = -10.99;
     public static final double STANDARD_PRICE_FOR_PROLONGED_DAY = 25.99;
 
+    private final AtomicLong id = new AtomicLong(0);
+
     @Inject
     @RestClient
     ReservationClient reservationClient;
@@ -35,6 +37,17 @@ public class RentalResource {
     @Channel("invoices-adjust")
     Emitter<InvoiceAdjust> adjustmentEmitter;
 
+
+    @PUT
+    @Path("test/invoice-adjust/{reservationEndDate}")
+    public InvoiceAdjust testInvoiceAdjustProducer(LocalDate reservationEndDate){
+        double price = computePrice(reservationEndDate, LocalDate.now());
+        var invoiceAdjust = new InvoiceAdjust(Long.toString(id.incrementAndGet()),
+                "anonymous", LocalDate.now(), price);
+        Log.infof("Test sending invoiceAdjust: %s", invoiceAdjust);
+        adjustmentEmitter.send(invoiceAdjust);
+        return invoiceAdjust;
+    }
 
     @Path("/start/{userId}/{reservationId}")
     @POST
