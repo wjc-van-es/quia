@@ -1,5 +1,4 @@
 Listing extensions (default action, see --help).
-Looking for the newly published extensions in registry.quarkus.io
 Current Quarkus extensions installable: 
 
 ✬ ArtifactId                                         Extension                                                    Version                   Guide
