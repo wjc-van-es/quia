@@ -40,7 +40,7 @@ public class RentalResource {
 
     @PUT
     @Path("test/invoice-adjust/{reservationEndDate}")
-    public InvoiceAdjust testInvoiceAdjustProducer(LocalDate reservationEndDate){
+    public InvoiceAdjust testInvoiceAdjustProducer(LocalDate reservationEndDate) {
         double price = computePrice(reservationEndDate, LocalDate.now());
         var invoiceAdjust = new InvoiceAdjust(Long.toString(id.incrementAndGet()),
                 "anonymous", LocalDate.now(), price);
@@ -51,26 +51,45 @@ public class RentalResource {
 
     @Path("/start/{userId}/{reservationId}")
     @POST
-    public Rental start(String userId, Long reservationId){
+    public Rental start(String userId, Long reservationId) {
         Log.infof("Starting rental for %s with reservation %s.", userId, reservationId);
-        var rental =  new Rental(userId, reservationId, LocalDate.now());
-        rental.persist();
-        Log.infof("Persisting: %s.", rental);
+
+        Optional<Rental> optional = Rental.findByUserAndReservationIdsOptional(userId, reservationId);
+        Rental rental;
+        if (optional.isPresent()) {
+            // a confirmed invoice has already been received
+            rental = optional.get();
+            rental.setActive(true);
+            rental.update();
+            Log.infof("Updating: %s.", rental);
+        } else {
+            // rental starting right now before payment
+            rental = new Rental(userId, reservationId, LocalDate.now());
+            rental.setActive(true);
+            rental.persist();
+            Log.infof("Persisting: %s.", rental);
+        }
+
         return rental;
     }
 
     @Path("/end/{userId}/{reservationId}")
     @PUT
-    public Rental end(String userId, Long reservationId){
+    public Rental end(String userId, Long reservationId) {
         Log.infof("Ending rental for %s with reservation %s.", userId, reservationId);
         var optional = Rental.findByUserAndReservationIdsOptional(userId, reservationId);
         var rental = optional.orElseThrow(
                 () -> new NotFoundException(String.format("Rental with userId %s and reservationId %s is not found",
                         userId, reservationId)));
 
+        if (!rental.isPaid()) {
+            Log.warn("Rental is not paid: " + rental);
+            // trigger error processing
+        }
+
         var reservation = reservationClient.getById(reservationId);
         var today = LocalDate.now();
-        if(!reservation.getEndDay().isEqual(today)){
+        if (!reservation.getEndDay().isEqual(today)) {
             Log.infof("Adjusting the price for rental %s.\nOriginal reservation end day was %s.",
                     rental, reservation.getEndDay());
             adjustmentEmitter.send(new InvoiceAdjust(rental.id.toString(), userId, today,
@@ -85,13 +104,13 @@ public class RentalResource {
     }
 
     @GET
-    public List<Rental> list(){
+    public List<Rental> list() {
         return Rental.listAll();
     }
 
     @GET
     @Path("/active")
-    public List<Rental> listActive(){
+    public List<Rental> listActive() {
         return Rental.listActive();
     }
 
@@ -100,7 +119,7 @@ public class RentalResource {
     // https://marcelkliemannel.com/articles/2021/centralized-error-handling-and-a-custom-error-page-in-quarkus/
     // Maybe this is a good case for pattern matching
     @ServerExceptionMapper
-    public Response mapException(WebApplicationException e){
+    public Response mapException(WebApplicationException e) {
         var status = switch (e) {
             case BadRequestException ex -> RestResponse.Status.BAD_REQUEST;
             case NotAuthorizedException ex -> RestResponse.Status.UNAUTHORIZED;

@@ -39,7 +39,7 @@ public class PaymentRequester {
         }
     }
 
-//    /* uncomment in order to consume confirmation here
+    /* uncomment in order to consume confirmation here
     @Incoming("invoices-confirmations")
     public void consume(InvoiceConfirmation invoiceConfirmation) {
         System.out.println(invoiceConfirmation);
