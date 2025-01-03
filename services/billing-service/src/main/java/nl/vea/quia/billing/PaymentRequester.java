@@ -6,6 +6,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 import nl.vea.quia.billing.data.InvoiceConfirmation;
 import nl.vea.quia.billing.model.Invoice;
+import nl.vea.quia.billing.model.InvoiceAdjust;
+import org.eclipse.microprofile.reactive.messaging.Acknowledgment;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
@@ -27,6 +29,17 @@ public class PaymentRequester {
         Log.infof("Invoice %s is paid.", invoice);
 
         return new InvoiceConfirmation(invoice, true);
+    }
+
+    @Incoming("invoices-adjust")
+    @Blocking // Because payment sleeps it needs to run in the worker thread instead of the non-blocking eventloop thread
+    @Acknowledgment(Acknowledgment.Strategy.PRE_PROCESSING)
+    public void requestAdjustment(InvoiceAdjust invoiceAdjust){
+        Log.infof("Invoice adjustment received: %s", invoiceAdjust);
+        payment(invoiceAdjust.getUserId(), invoiceAdjust.getPrice(), invoiceAdjust);
+        invoiceAdjust.setPaid(true);
+        invoiceAdjust.persist();
+        Log.infof("Invoice adjustment %s is paid.", invoiceAdjust);
     }
 
     private void payment(String user, double price, Object data) {
