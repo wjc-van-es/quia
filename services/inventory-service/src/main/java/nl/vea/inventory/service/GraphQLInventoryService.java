@@ -1,5 +1,6 @@
 package nl.vea.inventory.service;
 
+import io.micrometer.core.annotation.Counted;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -22,6 +23,7 @@ public class GraphQLInventoryService {
         return carRepository.listAll();
     }
 
+    @Counted(description = "Number of car registrations")
     @Transactional
     @Mutation
     public Car register(Car car) {
@@ -30,6 +32,7 @@ public class GraphQLInventoryService {
         return car;
     }
 
+    @Counted(description = "Number of cars removed")
     @Transactional
     @Mutation
     public boolean remove(String licensePlateNumber) {
