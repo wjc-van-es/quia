@@ -25,7 +25,6 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -77,9 +76,9 @@ public class ReservationResource {
         return Uni.createFrom().item(List.of());
     }
 
-    public InventoryClient getInventoryClient() {
-        return inventoryClient;
-    }
+//    public InventoryClient getInventoryClient() {
+//        return inventoryClient;
+//    }
 
     @Consumes(MediaType.APPLICATION_JSON)
     @POST

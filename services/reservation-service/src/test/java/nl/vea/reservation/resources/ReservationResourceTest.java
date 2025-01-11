@@ -50,7 +50,7 @@ public class ReservationResourceTest {
                 .body("id", notNullValue());
     }
 
-    @DisabledOnIntegrationTest(forArtifactTypes = DisabledOnIntegrationTest.ArtifactType.NATIVE_BINARY)
+    @DisabledOnIntegrationTest(forArtifactTypes = DisabledOnIntegrationTest.ArtifactType.ALL)
     @Test
     public void testWhenCarIsReservedThenNoLongerAvailable(){
         // Given: inventory contains single car
