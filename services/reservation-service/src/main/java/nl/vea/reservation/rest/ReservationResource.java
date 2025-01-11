@@ -15,6 +15,8 @@ import nl.vea.reservation.inventory.GraphQLInventoryClient;
 import nl.vea.reservation.inventory.InventoryClient;
 import nl.vea.reservation.rental.RentalClient;
 import nl.vea.reservation.reservation.entities.Reservation;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.resteasy.reactive.RestQuery;
@@ -48,9 +50,11 @@ public class ReservationResource {
         this.rentalClient = rentalClient;
     }
 
+    @Retry(maxRetries = 25, delay = 1000)
+    @Fallback(fallbackMethod = "availabilityFallback")
     @GET
     @Path("availability")
-    public Uni<Collection<Car>> availability(@RestQuery LocalDate startDate, @RestQuery LocalDate endDate){
+    public Uni<List<Car>> availability(@RestQuery LocalDate startDate, @RestQuery LocalDate endDate){
         Uni<List<Car>> availableCarsUni = inventoryClient.allCars();
         Uni<List<Reservation>> reservationsUni = Reservation.listAll();
 
@@ -66,6 +70,15 @@ public class ReservationResource {
                             .toList();
 
                 });
+    }
+
+
+    public Uni<List<Car>> availabilityFallback(LocalDate startDate, LocalDate endDate){
+        return Uni.createFrom().item(List.of());
+    }
+
+    public InventoryClient getInventoryClient() {
+        return inventoryClient;
     }
 
     @Consumes(MediaType.APPLICATION_JSON)
