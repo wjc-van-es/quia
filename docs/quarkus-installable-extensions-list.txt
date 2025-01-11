@@ -439,7 +439,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-jsonp                                      JSON-P                                                       3.17.6                    
 ✬ quarkus-kafka-client                               Apache Kafka Client                                          3.17.6                    https://quarkus.io/guides/kafka
 ✬ quarkus-kafka-streams                              Apache Kafka Streams                                         3.17.6                    https://quarkus.io/guides/kafka-streams
-  quarkus-kafka-streams-processor                    Kafka Streams Processor                                      4.0.2                     https://docs.quarkiverse.io/quarkus-kafka-streams-processor/dev/index.html
+  quarkus-kafka-streams-processor                    Kafka Streams Processor                                      4.0.3                     https://docs.quarkiverse.io/quarkus-kafka-streams-processor/dev/index.html
   quarkus-kerberos                                   Kerberos                                                     2.2.0                     
 ✬ quarkus-keycloak-admin-client                      Keycloak Admin Client                                        3.8.6                     
 ✬ quarkus-keycloak-admin-client-reactive             Keycloak Admin Client Reactive                               3.8.6                     
@@ -486,6 +486,8 @@ Current Quarkus extensions installable:
 ✬ quarkus-mailer                                     Mailer                                                       3.17.6                    https://quarkus.io/guides/mailer
   quarkus-mailpit                                    Mailpit                                                      1.3.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-mailpit/dev/index.html
   quarkus-maven-resolver                             Maven Resolver                                               0.0.5                     
+  quarkus-mcp-server-sse                             Quarkus MCP Server Transport - SSE - Runtime                 1.0.0.Alpha2              
+  quarkus-mcp-server-stdio                           Quarkus MCP Server Transport - stdio - Runtime               1.0.0.Alpha2              
   quarkus-mdns                                       mDNS                                                         1.1.0                     https://docs.quarkiverse.io/quarkus-mdns/dev/
 ✬ quarkus-messaging                                  Messaging                                                    3.17.6                    https://quarkus.io/guides/messaging
 ✬ quarkus-messaging-amazon-sqs                       Messaging - Amazon SQS Connector                             2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-sqs.html

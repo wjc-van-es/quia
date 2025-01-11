@@ -1,6 +1,7 @@
 package nl.vea.inventory.service;
 
 import io.micrometer.core.annotation.Counted;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -23,6 +24,7 @@ public class GraphQLInventoryService {
         return carRepository.listAll();
     }
 
+    @WithSpan
     @Counted(description = "Number of car registrations")
     @Transactional
     @Mutation
@@ -32,6 +34,7 @@ public class GraphQLInventoryService {
         return car;
     }
 
+    @WithSpan
     @Counted(description = "Number of cars removed")
     @Transactional
     @Mutation
