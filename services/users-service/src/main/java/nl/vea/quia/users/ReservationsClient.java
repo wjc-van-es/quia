@@ -12,7 +12,7 @@ import org.jboss.resteasy.reactive.RestQuery;
 import java.time.LocalDate;
 import java.util.List;
 
-@RegisterRestClient(baseUri = "http://localhost:8081")
+@RegisterRestClient(configKey = "reservations")
 @AccessToken
 @Path("reservation")
 public interface ReservationsClient {
