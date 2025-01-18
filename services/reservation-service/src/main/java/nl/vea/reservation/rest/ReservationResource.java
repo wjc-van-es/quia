@@ -56,7 +56,9 @@ public class ReservationResource {
     public Uni<List<Car>> availability(@RestQuery LocalDate startDate, @RestQuery LocalDate endDate){
         Uni<List<Car>> availableCarsUni = inventoryClient.allCars();
         Uni<List<Reservation>> reservationsUni = Reservation.listAll();
-        Log.infof("availability will be calculated by comparing the inventory with reservations");
+        Log.infof(
+                "availability will be calculated by comparing the inventory with reservations between %s & %s",
+                startDate, endDate);
         return Uni.combine().all().unis(availableCarsUni, reservationsUni)
                 .with((availableCars, reservations) -> {
                     long[] reservedCarIds = reservations.stream()
@@ -66,7 +68,7 @@ public class ReservationResource {
                     return availableCars.stream()
                             // filter only cars whose ids are not in reservedCarIds are available
                             .filter(car -> Arrays.binarySearch(reservedCarIds, car.getId()) < 0)
-                            .peek(car -> Log.infof("%s is available", car))
+                            .peek(car -> Log.debugf("%s is available", car))
                             .toList();
 
                 });
