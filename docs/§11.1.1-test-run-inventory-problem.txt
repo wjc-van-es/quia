@@ -1,0 +1,24 @@
+We saw this also in dev mode, but it did not impede refreshing available cars update
+
+CDI: programmatic lookup problem detected
+-----------------------------------------
+At least one bean matched the required type and qualifiers but was marked as unused and removed during build
+
+Stack frame: io.quarkus.hibernate.orm.runtime.customized.FormatMapperKind$2.create(FormatMapperKind.java:27)
+Required type: interface jakarta.json.bind.Jsonb
+Required qualifiers: [@jakarta.enterprise.inject.Default()]
+Removed beans:
+        - PRODUCER_METHOD bean io.quarkus.jsonb.JsonbProducer#jsonb() [types=[interface java.lang.AutoCloseable, interface jakarta.json.bind.Jsonb], qualifiers=null]
+Solutions:
+        - Application developers can eliminate false positives via the @Unremovable annotation
+        - Extensions can eliminate false positives via build items, e.g. using the UnremovableBeanBuildItem
+        - See also https://quarkus.io/guides/cdi-reference#remove_unused_beans
+        - Enable the DEBUG log level to see the full stack trace
+================================================================================
+
+2025-01-18 17:25:55,364 WARN  [io.qua.grp.run.GrpcServerRecorder] (main) Using legacy gRPC support, with separate new HTTP server instance. Switch to single HTTP server instance usage with quarkus.grpc.server.use-separate-server=false property
+2025-01-18 17:25:55,422 INFO  [io.qua.grp.run.GrpcServerRecorder] (vert.x-eventloop-thread-1) Started gRPC server on 0.0.0.0:9000 [TLS enabled: false]
+2025-01-18 17:25:55,450 INFO  [io.quarkus] (main) inventory-service 0.0.1-SNAPSHOT on JVM (powered by Quarkus 3.17.6) started in 1.826s. Listening on: http://0.0.0.0:8083
+2025-01-18 17:25:55,450 INFO  [io.quarkus] (main) Profile prod activated.
+2025-01-18 17:25:55,450 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, grpc-server, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-mysql, micrometer, narayana-jta, opentelemetry, smallrye-context-propagation, smallrye-graphql, smallrye-health, vertx]
+
