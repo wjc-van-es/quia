@@ -5,11 +5,11 @@
         <relativePath>../../pom.xml</relativePath>
         <groupId>nl.vea.quia</groupId>
         <artifactId>quia</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>rental-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 <!--
 
     <dependencyManagement>
@@ -47,6 +47,10 @@
             <artifactId>quarkus-messaging-kafka</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-docker</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-test-kafka-companion</artifactId>

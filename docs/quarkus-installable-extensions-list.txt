@@ -92,7 +92,6 @@ Current Quarkus extensions installable:
 ✬ camel-quarkus-graphql                              Camel GraphQL                                                3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/graphql.html
 ✬ camel-quarkus-grok                                 Camel Grok                                                   3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/grok.html
 ✬ camel-quarkus-groovy                               Camel Groovy                                                 3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/groovy.html
-✬ camel-quarkus-groovy-dsl                           Camel Groovy DSL                                             3.15.1                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/groovy-dsl.html
 ✬ camel-quarkus-grpc                                 Camel gRPC                                                   3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/grpc.html
 ✬ camel-quarkus-gson                                 Camel Gson                                                   3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/gson.html
 ✬ camel-quarkus-hashicorp-vault                      Camel Hashicorp Vault                                        3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/hashicorp-vault.html
@@ -120,7 +119,6 @@ Current Quarkus extensions installable:
 ✬ camel-quarkus-jpa                                  Camel JPA                                                    3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jpa.html
 ✬ camel-quarkus-jq                                   Camel JQ                                                     3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jq.html
 ✬ camel-quarkus-jsch                                 Camel SCP                                                    3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jsch.html
-✬ camel-quarkus-jsh-dsl                              Camel JavaShell DSL                                          3.15.1                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jsh-dsl.html
 ✬ camel-quarkus-jslt                                 Camel JSLT                                                   3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jslt.html
 ✬ camel-quarkus-json-validator                       Camel JSON Schema Validator                                  3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/json-validator.html
 ✬ camel-quarkus-jsonata                              Camel JSONATA                                                3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/jsonata.html
@@ -133,8 +131,6 @@ Current Quarkus extensions installable:
 ✬ camel-quarkus-knative                              Camel Knative                                                3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/knative.html
 ✬ camel-quarkus-knative-consumer                     Camel Knative Consumer                                       3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/knative-consumer.html
 ✬ camel-quarkus-knative-producer                     Camel Knative Producer                                       3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/knative-producer.html
-✬ camel-quarkus-kotlin                               Camel Kotlin                                                 3.15.1                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/kotlin.html
-✬ camel-quarkus-kotlin-dsl                           Camel Kotlin DSL                                             3.15.1                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/kotlin-dsl.html
 ✬ camel-quarkus-kubernetes                           Camel Kubernetes                                             3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/kubernetes.html
 ✬ camel-quarkus-kubernetes-cluster-service           Camel Kubernetes Cluster Service                             3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/kubernetes-cluster-service.html
 ✬ camel-quarkus-kudu                                 Camel Kudu                                                   3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/kudu.html
@@ -247,15 +243,11 @@ Current Quarkus extensions installable:
 ✬ camel-quarkus-zipfile                              Camel Zip File                                               3.17.0                    https://camel.apache.org/camel-quarkus/latest/reference/extensions/zipfile.html
   camunda-bpm-quarkus-engine                         Camunda Platform 7 Engine                                    7.22.0                    https://docs.camunda.org/manual/latest/user-guide/quarkus-integration/
 ✬ cassandra-quarkus-client                           DataStax Apache Cassandra client                             1.2.0                     https://quarkus.io/guides/cassandra
-  citrus-quarkus                                     Citrus                                                       4.5.0                     https://github.com/christophd/citrus-demo-quarkus
+  citrus-quarkus                                     Citrus                                                       4.5.2                     https://github.com/christophd/citrus-demo-quarkus
 ✬ debezium-quarkus-outbox                            Debezium Quarkus Outbox                                      3.0.2.Final               https://debezium.io/documentation/reference/3.0/transformations/outbox-event-router.html
 ✬ debezium-quarkus-outbox-reactive                   Debezium Quarkus Outbox Reactive                             3.0.2.Final               https://debezium.io/documentation/reference/3.0/transformations/outbox-event-router.html
   drools-quarkus                                     Drools                                                       10.0.0                    https://quarkus.io/guides/drools
   myfaces-quarkus                                    Apache MyFaces                                               4.1.0                     https://myfaces.apache.org/#/coregettingstarted?id=quarkus
-✬ optaplanner-quarkus                                OptaPlanner                                                  9.37.0.Final              https://quarkus.io/guides/optaplanner
-✬ optaplanner-quarkus-benchmark                      OptaPlanner benchmark                                        9.37.0.Final              https://quarkus.io/guides/optaplanner
-✬ optaplanner-quarkus-jackson                        OptaPlanner Jackson                                          9.37.0.Final              
-✬ optaplanner-quarkus-jsonb                          OptaPlanner JSON-B                                           9.37.0.Final              
 ✬ quarkus-agroal                                     Agroal - Database connection pool                            3.17.6                    https://quarkus.io/guides/datasource
 ✬ quarkus-amazon-acm                                 Amazon ACM                                                   2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-acm.html
   quarkus-amazon-alexa                               Amazon Alexa                                                 2.0.0                     https://quarkus.io/guides/amazon-lambda
@@ -290,7 +282,8 @@ Current Quarkus extensions installable:
 ✬ quarkus-amazon-sqs                                 Amazon SQS                                                   2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-sqs.html
 ✬ quarkus-amazon-ssm                                 Amazon SSM                                                   2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-ssm.html
 ✬ quarkus-amazon-sts                                 Amazon STS                                                   2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-sts.html
-  quarkus-antivirus                                  Antivirus                                                    1.1.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-antivirus/dev/index.html
+  quarkus-angus-mail                                 Angus Mail                                                   0.0.2                     https://docs.quarkiverse.io/quarkus-angus-mail/dev/
+  quarkus-antivirus                                  Antivirus                                                    1.2.3                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-antivirus/dev/index.html
 ✬ quarkus-apicurio-registry-avro                     Apicurio Registry - Avro                                     3.17.6                    https://quarkus.io/guides/kafka-schema-registry-avro
 ✬ quarkus-apicurio-registry-json-schema              Apicurio Registry - Json Schema                              3.17.6                    
   quarkus-apistax                                    APIstax                                                      4.0.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-apistax/dev/
@@ -302,13 +295,13 @@ Current Quarkus extensions installable:
   quarkus-authzed-client                             Authzed Client                                               0.7.0                     
 ✬ quarkus-avro                                       Apache Avro                                                  3.17.6                    https://quarkus.io/guides/kafka-schema-registry-avro
 ✬ quarkus-awt                                        AWT                                                          3.17.6                    
-  quarkus-azure-app-configuration                    Quarkus Azure App Configuration                              1.0.9                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-app-configuration.html
-  quarkus-azure-cosmos                               Quarkus Support Azure Cosmos DB                              1.0.9                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-cosmos.html
-  quarkus-azure-eventhubs                            Quarkus Support Azure Event Hubs                             1.0.9                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-eventhubs.html
+  quarkus-azure-app-configuration                    Quarkus Azure App Configuration                              1.1.0                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-app-configuration.html
+  quarkus-azure-cosmos                               Quarkus Support Azure Cosmos DB                              1.1.0                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-cosmos.html
+  quarkus-azure-eventhubs                            Quarkus Support Azure Event Hubs                             1.1.0                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-eventhubs.html
 ✬ quarkus-azure-functions                            Azure Functions                                              3.17.6                    https://quarkus.io/guides/azure-functions
 ✬ quarkus-azure-functions-http                       Azure Functions HTTP                                         3.17.6                    https://quarkus.io/guides/azure-functions-http
-  quarkus-azure-keyvault                             Quarkus Support Azure Key Vault                              1.0.9                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-key-vault.html
-  quarkus-azure-storage-blob                         Quarkus Support Azure Storage Blob                           1.0.9                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-storage-blob.html
+  quarkus-azure-keyvault                             Quarkus Support Azure Key Vault                              1.1.0                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-key-vault.html
+  quarkus-azure-storage-blob                         Quarkus Support Azure Storage Blob                           1.1.0                     https://docs.quarkiverse.io/quarkus-azure-services/dev/quarkus-azure-storage-blob.html
   quarkus-barcode4j                                  Barcode4J                                                    1.0.0                     https://docs.quarkiverse.io/quarkus-barcode/dev/index.html
   quarkus-bon-jova                                   Bon Jova 🎸                                                  0.7.0                     
   quarkus-bucket4j                                   Bucket4j                                                     1.0.4                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-bucket4j/dev/index.html
@@ -324,9 +317,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-container-image-jib                        Container Image Jib                                          3.17.6                    
 ✬ quarkus-container-image-openshift                  Container Image OpenShift                                    3.17.6                    
 ✬ quarkus-container-image-podman                     Container Image Podman                                       3.17.6                    https://quarkus.io/guides/container-image
-✬ quarkus-container-image-s2i                        Container Image S2I                                          3.2.12.Final              
-  quarkus-couchbase                                  Couchbase Quarkus Extension                                  1.0.0.Beta2               https://docs.quarkiverse.io/quarkus-couchbase/dev/index.html
-✬ quarkus-csrf-reactive                              Cross-Site Request Forgery Prevention Filter Reactive        3.8.6                     
+  quarkus-couchbase                                  Couchbase Quarkus Extension                                  1.0.0                     https://docs.quarkiverse.io/quarkus-couchbase/dev/index.html
   quarkus-cucumber                                   Cucumber                                                     1.2.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-cucumber/dev/index.html
 ✬ quarkus-cxf                                        Quarkus CXF                                                  3.17.3                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-cxf/dev/reference/extensions/quarkus-cxf.html
 ✬ quarkus-cxf-integration-tracing-opentelemetry      Quarkus CXF OpenTelemetry                                    3.17.3                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-cxf/dev/reference/extensions/quarkus-cxf-integration-tracing-opentelemetry.html
@@ -345,7 +336,6 @@ Current Quarkus extensions installable:
 ✬ quarkus-elasticsearch-java-client                  Elasticsearch Java Client                                    3.17.6                    https://quarkus.io/guides/elasticsearch
   quarkus-elasticsearch-reactive                     Elasticsearch Reactive                                       1.1.0                     
 ✬ quarkus-elasticsearch-rest-client                  Elasticsearch REST client                                    3.17.6                    https://quarkus.io/guides/elasticsearch
-✬ quarkus-elasticsearch-rest-high-level-client       Elasticsearch REST High Level Client                         3.2.12.Final              https://quarkus.io/guides/elasticsearch
 ✬ quarkus-elytron-security-jdbc                      Elytron Security JDBC                                        3.17.6                    https://quarkus.io/guides/security-jdbc
 ✬ quarkus-elytron-security-ldap                      Elytron Security LDAP Realm                                  3.17.6                    https://quarkus.io/guides/security-ldap
 ✬ quarkus-elytron-security-oauth2                    Elytron Security OAuth 2.0                                   3.17.6                    https://quarkus.io/guides/security-oauth2
@@ -358,11 +348,11 @@ Current Quarkus extensions installable:
 ✬ quarkus-funqy-http                                 Funqy HTTP Binding                                           3.17.6                    https://quarkus.io/guides/funqy-http
 ✬ quarkus-funqy-knative-events                       Funqy Knative Events Binding                                 3.17.6                    https://quarkus.io/guides/funqy-knative-events
   quarkus-fury                                       Fury                                                         0.2.1                     https://docs.quarkiverse.io/quarkus-fury/dev/index.html
-  quarkus-fx                                         FX                                                           0.9.0                     https://docs.quarkiverse.io/quarkus-fx/dev/index.html
+  quarkus-fx                                         FX                                                           0.9.1                     https://docs.quarkiverse.io/quarkus-fx/dev/index.html
   quarkus-github-action                              GitHub Action                                                2.5.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-action/dev/index.html
   quarkus-github-api                                 GitHub API                                                   1.322.0                   https://github-api.kohsuke.org/
-  quarkus-github-app                                 GitHub App                                                   2.8.2                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-app/dev/index.html
-  quarkus-github-app-command-airline                 GitHub App Command Airline                                   2.8.2                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-app/dev/index.html
+  quarkus-github-app                                 GitHub App                                                   2.8.3                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-app/dev/index.html
+  quarkus-github-app-command-airline                 GitHub App Command Airline                                   2.8.3                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-app/dev/index.html
 ✬ quarkus-google-cloud-bigquery                      Google Cloud Bigquery                                        2.13.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/bigquery.html
 ✬ quarkus-google-cloud-bigtable                      Google Cloud Bigtable                                        2.13.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/bigtable.html
 ✬ quarkus-google-cloud-firebase-admin                Google Cloud Firebase Admin                                  2.13.0                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-google-cloud-services/main/firebase-admin.html
@@ -391,7 +381,6 @@ Current Quarkus extensions installable:
 ✬ quarkus-hibernate-reactive-panache                 Hibernate Reactive with Panache                              3.17.6                    
 ✬ quarkus-hibernate-reactive-panache-kotlin          Hibernate Reactive Panache Kotlin                            3.17.6                    
 ✬ quarkus-hibernate-reactive-rest-data-panache       REST resources for Hibernate Reactive with Panache           3.17.6                    https://quarkus.io/guides/rest-data-panache
-✬ quarkus-hibernate-search-orm-coordination-outb...  Hibernate Search Coordination with Outbox Polling            3.2.12.Final              https://quarkus.io/guides/hibernate-search-orm-elasticsearch
 ✬ quarkus-hibernate-search-orm-elasticsearch         Hibernate Search + Elasticsearch                             3.17.6                    https://quarkus.io/guides/hibernate-search-orm-elasticsearch
   quarkus-hibernate-search-orm-elasticsearch-aws     Hibernate Search + Elasticsearch - AWS authentication an...  5.0.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-hibernate-search-extras/dev/index.html#aws-integration
 ✬ quarkus-hibernate-search-orm-outbox-polling        Hibernate Search Coordination with Outbox Polling            3.17.6                    https://quarkus.io/guides/hibernate-search-orm-elasticsearch
@@ -425,24 +414,22 @@ Current Quarkus extensions installable:
 ✬ quarkus-jdbc-postgresql                            JDBC Driver - PostgreSQL                                     3.17.6                    https://quarkus.io/guides/datasource
   quarkus-jdbc-singlestore                           JDBC Driver - Singlestore                                    1.0.2                     https://docs.quarkiverse.io/quarkus-jdbc-singlestore/dev/
   quarkus-jdbc-sqlite                                JDBC Driver - Sqlite                                         3.0.11                    
-  quarkus-jdbi                                       Jdbi                                                         1.5.1                     
+  quarkus-jdbi                                       Jdbi                                                         1.6.0                     
   quarkus-jdiameter                                  Quarkus JDiameter                                            2.1.3                     
 ✬ quarkus-jfr                                        Java Flight Recorder (JFR)                                   3.17.6                    https://quarkus.io/guides/jfr
   quarkus-jgit                                       JGit                                                         3.3.3                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-jgit/dev/index.html
   quarkus-jgrapht                                    JGraphT                                                      1.4.1                     https://jgrapht.org/guide/UserOverview
   quarkus-jnosql-document-mongodb                    JNoSQL Document MongoDB                                      3.3.2                     
-  quarkus-jobrunr                                    JobRunr                                                      7.3.2                     https://www.jobrunr.io/en/documentation/configuration/quarkus/
+  quarkus-jobrunr                                    JobRunr                                                      7.4.0                     https://www.jobrunr.io/en/documentation/configuration/quarkus/
   quarkus-jooq                                       Quarkus jOOQ - Runtime                                       2.0.1                     
   quarkus-jpastreamer                                JPAStreamer                                                  3.0.3.Final               https://quarkiverse.github.io/quarkiverse-docs/quarkus-jpastreamer/dev/
-  quarkus-jsch                                       JSch                                                         3.0.12                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-jsch/dev/index.html
+  quarkus-jsch                                       JSch                                                         3.0.13                    https://quarkiverse.github.io/quarkiverse-docs/quarkus-jsch/dev/index.html
 ✬ quarkus-jsonb                                      JSON-B                                                       3.17.6                    https://quarkus.io/guides/rest-json
 ✬ quarkus-jsonp                                      JSON-P                                                       3.17.6                    
 ✬ quarkus-kafka-client                               Apache Kafka Client                                          3.17.6                    https://quarkus.io/guides/kafka
 ✬ quarkus-kafka-streams                              Apache Kafka Streams                                         3.17.6                    https://quarkus.io/guides/kafka-streams
   quarkus-kafka-streams-processor                    Kafka Streams Processor                                      4.0.3                     https://docs.quarkiverse.io/quarkus-kafka-streams-processor/dev/index.html
   quarkus-kerberos                                   Kerberos                                                     2.2.0                     
-✬ quarkus-keycloak-admin-client                      Keycloak Admin Client                                        3.8.6                     
-✬ quarkus-keycloak-admin-client-reactive             Keycloak Admin Client Reactive                               3.8.6                     
 ✬ quarkus-keycloak-admin-rest-client                 Keycloak Admin REST Client                                   3.17.6                    
 ✬ quarkus-keycloak-admin-resteasy-client             Keycloak Admin RESTEasy Client                               3.17.6                    
 ✬ quarkus-keycloak-authorization                     Keycloak Authorization                                       3.17.6                    https://quarkus.io/guides/security-keycloak-authorization
@@ -486,15 +473,15 @@ Current Quarkus extensions installable:
 ✬ quarkus-mailer                                     Mailer                                                       3.17.6                    https://quarkus.io/guides/mailer
   quarkus-mailpit                                    Mailpit                                                      1.3.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-mailpit/dev/index.html
   quarkus-maven-resolver                             Maven Resolver                                               0.0.5                     
-  quarkus-mcp-server-sse                             Quarkus MCP Server Transport - SSE - Runtime                 1.0.0.Alpha2              
-  quarkus-mcp-server-stdio                           Quarkus MCP Server Transport - stdio - Runtime               1.0.0.Alpha2              
+  quarkus-mcp-server-sse                             Model Context Protocol (MCP) Server for server side even...  1.0.0.Alpha2              
+  quarkus-mcp-server-stdio                           Model Context Protocol (MCP) Server for standard input/o...  1.0.0.Alpha2              
   quarkus-mdns                                       mDNS                                                         1.1.0                     https://docs.quarkiverse.io/quarkus-mdns/dev/
 ✬ quarkus-messaging                                  Messaging                                                    3.17.6                    https://quarkus.io/guides/messaging
 ✬ quarkus-messaging-amazon-sqs                       Messaging - Amazon SQS Connector                             2.20.0                    https://docs.quarkiverse.io/quarkus-amazon-services/dev/amazon-sqs.html
 ✬ quarkus-messaging-amqp                             Messaging - AMQP Connector                                   3.17.6                    https://quarkus.io/guides/amqp
 ✬ quarkus-messaging-kafka                            Messaging - Kafka Connector                                  3.17.6                    https://quarkus.io/guides/kafka-getting-started
 ✬ quarkus-messaging-mqtt                             Messaging - MQTT Connector                                   3.17.6                    
-  quarkus-messaging-nats-jetstream                   Reactive Messaging Nats Jetstream                            3.17.10                   https://docs.quarkiverse.io/quarkus-reactive-messaging-nats-jetstream/dev/
+  quarkus-messaging-nats-jetstream                   Reactive Messaging Nats Jetstream                            3.17.12                   https://docs.quarkiverse.io/quarkus-reactive-messaging-nats-jetstream/dev/
 ✬ quarkus-messaging-pulsar                           Messaging - Pulsar Connector                                 3.17.6                    https://quarkus.io/guides/pulsar
 ✬ quarkus-messaging-rabbitmq                         Messaging - RabbitMQ Connector                               3.17.6                    https://quarkus.io/guides/rabbitmq
   quarkus-microcks                                   Microcks                                                     0.2.7                     https://github.com/microcks/microcks-quarkus
@@ -518,7 +505,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-mutiny                                     Mutiny                                                       3.17.6                    https://quarkus.io/guides/mutiny-primer
   quarkus-mybatis                                    MyBatis SQL Mapper                                           2.2.4                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-mybatis/dev/index.html
   quarkus-mybatis-plus                               MyBatis Plus                                                 2.2.4                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-mybatis/dev/
-  quarkus-nagios                                     Nagios                                                       0.1.2                     https://docs.quarkiverse.io/quarkus-nagios/dev/
+  quarkus-nagios                                     Nagios                                                       1.0.0                     https://docs.quarkiverse.io/quarkus-nagios/dev/
 ✬ quarkus-narayana-jta                               Narayana JTA - Transaction manager                           3.17.6                    https://quarkus.io/guides/transaction
 ✬ quarkus-narayana-lra                               Narayana LRA - LRA Participant Support                       3.17.6                    https://quarkus.io/guides/lra
 ✬ quarkus-narayana-stm                               Narayana STM - Software Transactional Memory                 3.17.6                    https://quarkus.io/guides/software-transactional-memory
@@ -527,30 +514,25 @@ Current Quarkus extensions installable:
 ✬ quarkus-observability-devservices                  Observability                                                3.17.6                    https://quarkus.io/guides/observability-devservices-lgtm
 ✬ quarkus-oidc                                       OpenID Connect                                               3.17.6                    https://quarkus.io/guides/security-openid-connect
 ✬ quarkus-oidc-client                                OpenID Connect Client                                        3.17.6                    https://quarkus.io/guides/security-openid-connect-client
-✬ quarkus-oidc-client-filter                         OpenID Connect Client Filter                                 3.8.6                     https://quarkus.io/guides/security-openid-connect-client
 ✬ quarkus-oidc-client-graphql                        OpenID Connect Client integration for GraphQL client         3.17.6                    https://quarkus.io/guides/security-openid-connect-client
-✬ quarkus-oidc-client-reactive-filter                OpenID Connect Client Filter Reactive                        3.8.6                     https://quarkus.io/guides/security-openid-connect-client
 ✬ quarkus-oidc-client-registration                   OpenID Connect Dynamic Client Registration                   3.17.6                    https://quarkus.io/guides/security-openid-connect-client-registration
 ✬ quarkus-oidc-db-token-state-manager                OpenID Connect Database Token State Manager                  3.17.6                    https://quarkus.io/guides/security-openid-connect-client
   quarkus-oidc-proxy                                 OpenID Connect Proxy                                         0.1.1                     
-✬ quarkus-oidc-token-propagation                     OpenID Connect Token Propagation                             3.8.6                     https://quarkus.io/guides/security-openid-connect-client
-✬ quarkus-oidc-token-propagation-reactive            OpenID Connect Token Propagation Reactive                    3.8.6                     https://quarkus.io/guides/security-openid-connect-client
   quarkus-okapi                                      Okapi Barcode                                                1.0.0                     https://docs.quarkiverse.io/quarkus-barcode/dev/index.html
   quarkus-omnifaces                                  OmniFaces                                                    4.6.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-omnifaces/dev/
-  quarkus-openapi-generator                          OpenAPI Generator - REST Client Generator                    2.7.1-lts                 https://docs.quarkiverse.io/quarkus-openapi-generator/dev/index.html
+  quarkus-openapi-generator                          OpenAPI Generator - REST Client Generator                    2.8.0-lts                 https://docs.quarkiverse.io/quarkus-openapi-generator/dev/index.html
   quarkus-opencv                                     OpenCV                                                       2.1.0                     
-  quarkus-openfga-client                             OpenFGA Client                                               2.1.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-openfga-client/dev/
+  quarkus-openfga-client                             OpenFGA Client                                               2.2.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-openfga-client/dev/
   quarkus-openpdf                                    OpenPDF                                                      3.1.2                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-itext/dev/
 ✬ quarkus-openshift                                  OpenShift                                                    3.17.6                    https://quarkus.io/guides/deploying-to-openshift
 ✬ quarkus-openshift-client                           OpenShift Client                                             3.17.6                    https://quarkus.io/guides/kubernetes-client
-✬ quarkus-opentelemetry                              OpenTelemetry                                                3.17.6                    https://quarkus.io/guides/opentelemetry
 ✬ quarkus-operator-sdk                               Operator SDK                                                 6.9.1                     https://docs.quarkiverse.io/quarkus-operator-sdk/dev/index.html
 ✬ quarkus-operator-sdk-bundle-generator              Operator SDK - OLM Bundle Generator                          6.9.1                     
   quarkus-pact-consumer                              Pact consumer                                                1.5.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-pact/dev/consumer-index.html
   quarkus-pact-provider                              Pact Provider                                                1.5.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-pact/dev/provider-index.html
   quarkus-pdfbox                                     Apache PDFBox                                                1.0.0                     https://docs.quarkiverse.io/quarkus-pdfbox/dev/index.html
 ✬ quarkus-picocli                                    Picocli                                                      3.17.6                    https://quarkus.io/guides/picocli
-  quarkus-playwright                                 Playwright                                                   2.0.0                     https://quarkiverse.github.io/quarkiverse-docs/playwright/dev/
+  quarkus-playwright                                 Playwright                                                   2.1.0                     https://docs.quarkiverse.io/quarkus-playwright/dev/
   quarkus-poi                                        Apache POI                                                   2.1.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-poi/dev/
   quarkus-pooled-jms                                 Messaginghub Pooled JMS                                      2.6.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-pooled-jms/dev/index.html
   quarkus-presidio                                   Presidio                                                     0.4.0                     https://docs.quarkiverse.io/quarkus-presidio/dev/
@@ -562,7 +544,8 @@ Current Quarkus extensions installable:
   quarkus-quinoa                                     Quinoa                                                       2.5.1                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-quinoa/dev/index.html
 ✬ quarkus-qute                                       Qute                                                         3.17.6                    https://quarkus.io/guides/qute
 ✬ quarkus-qute-web                                   Qute Web                                                     3.1.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-qute-web/dev/index.html
-  quarkus-rabbitmq-client                            RabbitMQ Client                                              3.2.0                     
+  quarkus-qute-web-markdown                          Qute Web Markdown                                            3.3.0                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-qute-web/dev/index.html
+  quarkus-rabbitmq-client                            RabbitMQ Client                                              3.2.1                     
 ✬ quarkus-reactive-db2-client                        Reactive DB2 client                                          3.17.6                    https://quarkus.io/guides/reactive-sql-clients
   quarkus-reactive-messaging-http                    Reactive HTTP and WebSocket Connector                        2.4.1                     
   quarkus-reactive-messsaging-nats-jetstream         Reactive Messsaging Nats Jetstream                           1.11.0                    https://docs.quarkiverse.io/quarkus-reactive-messsaging-nats-jetstream/dev/
@@ -580,14 +563,8 @@ Current Quarkus extensions installable:
 ✬ quarkus-rest-client-jaxb                           REST Client JAXB                                             3.17.6                    
 ✬ quarkus-rest-client-jsonb                          REST Client JSON-B                                           3.17.6                    
 ✬ quarkus-rest-client-kotlin-serialization           REST Client Kotlin Serialization                             3.17.6                    
-✬ quarkus-rest-client-mutiny                         REST Client Classic Mutiny support                           3.2.12.Final              
 ✬ quarkus-rest-client-oidc-filter                    REST Client - OpenID Connect Filter                          3.17.6                    https://quarkus.io/guides/security-openid-connect-client
 ✬ quarkus-rest-client-oidc-token-propagation         REST Client - OpenID Connect Token Propagation               3.17.6                    https://quarkus.io/guides/security-openid-connect-client
-✬ quarkus-rest-client-reactive                       RESTEasy Reactive's REST Client                              3.8.6                     https://quarkus.io/guides/rest-client-reactive
-✬ quarkus-rest-client-reactive-jackson               RESTEasy Reactive's REST Client Jackson                      3.8.6                     
-✬ quarkus-rest-client-reactive-jaxb                  RESTEasy Reactive's REST Client JAXB                         3.8.6                     
-✬ quarkus-rest-client-reactive-jsonb                 RESTEasy Reactive's REST Client JSON-B                       3.8.6                     
-✬ quarkus-rest-client-reactive-kotlin-serialization  RESTEasy Reactive's REST Client Kotlin Serialization         3.8.6                     
 ✬ quarkus-rest-csrf                                  REST - Cross-Site Request Forgery Prevention Filter          3.17.6                    
 ✬ quarkus-rest-jackson                               REST Jackson                                                 3.17.6                    https://quarkus.io/guides/rest#json-serialisation
 ✬ quarkus-rest-jaxb                                  REST JAXB                                                    3.17.6                    https://quarkus.io/guides/resteasy-reactive#xml-serialisation
@@ -611,23 +588,16 @@ Current Quarkus extensions installable:
 ✬ quarkus-resteasy-mutiny                            RESTEasy Classic Mutiny                                      3.17.6                    https://quarkus.io/guides/resteasy#reactive
   quarkus-resteasy-problem                           RESTeasy Problem                                             3.15.0                    https://github.com/quarkiverse/quarkus-resteasy-problem/blob/main/README.md
 ✬ quarkus-resteasy-qute                              RESTEasy Classic Qute                                        3.17.6                    https://quarkus.io/guides/qute
-✬ quarkus-resteasy-reactive                          RESTEasy Reactive                                            3.8.6                     https://quarkus.io/guides/resteasy-reactive
-✬ quarkus-resteasy-reactive-jackson                  RESTEasy Reactive Jackson                                    3.8.6                     
-✬ quarkus-resteasy-reactive-jaxb                     RESTEasy Reactive JAXB                                       3.8.6                     
-✬ quarkus-resteasy-reactive-jsonb                    RESTEasy Reactive JSON-B                                     3.8.6                     
-✬ quarkus-resteasy-reactive-kotlin-serialization     RESTEasy Reactive Kotlin Serialization                       3.8.6                     
-✬ quarkus-resteasy-reactive-links                    RESTEasy Reactive Links                                      3.8.6                     https://quarkus.io/guides/resteasy-reactive#web-links-support
-✬ quarkus-resteasy-reactive-qute                     RESTEasy Reactive Qute                                       3.8.6                     
-  quarkus-roq                                        Roq                                                          1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/
-  quarkus-roq-data                                   Roq Data                                                     1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
-  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
-  quarkus-roq-generator                              Roq Generator                                                1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
-  quarkus-roq-plugin-aliases                         Roq Plugin - Aliases                                         1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
-  quarkus-roq-plugin-asciidoc                        Roq Plugin - Asciidoc Java                                   1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
-  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
-  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
-  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
-  quarkus-roq-plugin-tagging                         Roq Plugin - Tagging                                         1.1.2                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
+  quarkus-roq                                        Roq                                                          1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/
+  quarkus-roq-data                                   Roq Data                                                     1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-data.html
+  quarkus-roq-frontmatter                            Roq FrontMatter                                              1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-frontmatter.html
+  quarkus-roq-generator                              Roq Generator                                                1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-generator.html
+  quarkus-roq-plugin-aliases                         Roq Plugin - Aliases                                         1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-aliases
+  quarkus-roq-plugin-asciidoc                        Roq Plugin - Asciidoc Java                                   1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-asciidoc
+  quarkus-roq-plugin-markdown                        Roq Plugin Markdown                                          1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-markdown
+  quarkus-roq-plugin-qrcode                          Roq Plugin QrCode                                            1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-qrcode
+  quarkus-roq-plugin-series                          Roq Plugin Series                                            1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-series
+  quarkus-roq-plugin-tagging                         Roq Plugin - Tagging                                         1.2.0                     https://docs.quarkiverse.io/quarkus-roq/dev/quarkus-roq-plugins.html#plugin-tagging
 ✬ quarkus-scala                                      Scala                                                        3.17.6                    
   quarkus-scala3                                     Scala 3                                                      1.0.0                     https://docs.quarkiverse.io/quarkus-scala3/dev/index.html
 ✬ quarkus-scheduler                                  Scheduler                                                    3.17.6                    https://quarkus.io/guides/scheduler
@@ -644,14 +614,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-smallrye-jwt-build                         SmallRye JWT Build                                           3.17.6                    https://quarkus.io/guides/security-jwt-build
 ✬ quarkus-smallrye-metrics                           SmallRye Metrics                                             3.17.6                    https://quarkus.io/guides/smallrye-metrics
 ✬ quarkus-smallrye-openapi                           SmallRye OpenAPI                                             3.17.6                    https://quarkus.io/guides/openapi-swaggerui
-✬ quarkus-smallrye-opentracing                       SmallRye OpenTracing                                         3.2.12.Final              https://quarkus.io/guides/opentracing
   quarkus-smallrye-opentracing                       SmallRye OpenTracing                                         1.0.0                     https://quarkus.io/guides/opentracing
-✬ quarkus-smallrye-reactive-messaging                SmallRye Reactive Messaging                                  3.8.6                     https://quarkus.io/guides/reactive-messaging
-✬ quarkus-smallrye-reactive-messaging-amqp           SmallRye Reactive Messaging - AMQP Connector                 3.8.6                     https://quarkus.io/guides/amqp
-✬ quarkus-smallrye-reactive-messaging-kafka          SmallRye Reactive Messaging - Kafka Connector                3.8.6                     https://quarkus.io/guides/kafka-reactive-getting-started
-✬ quarkus-smallrye-reactive-messaging-mqtt           SmallRye Reactive Messaging - MQTT Connector                 3.8.6                     
-✬ quarkus-smallrye-reactive-messaging-pulsar         SmallRye Reactive Messaging - Pulsar Connector               3.8.6                     https://quarkus.io/guides/pulsar
-✬ quarkus-smallrye-reactive-messaging-rabbitmq       SmallRye Reactive Messaging - RabbitMQ Connector             3.8.6                     https://quarkus.io/guides/rabbitmq
 ✬ quarkus-smallrye-stork                             SmallRye Stork                                               3.17.6                    https://quarkus.io/guides/stork
 ✬ quarkus-spring-boot-properties                     Quarkus Extension for Spring Boot properties                 3.17.6                    https://quarkus.io/guides/spring-boot-properties
 ✬ quarkus-spring-cache                               Quarkus Extension for Spring Cache API                       3.17.6                    https://quarkus.io/guides/spring-cache
@@ -673,7 +636,6 @@ Current Quarkus extensions installable:
 ✬ quarkus-vertx-graphql                              Eclipse Vert.x GraphQL                                       3.17.6                    
   quarkus-web-bundler                                Web Bundler                                                  1.8.1                     https://docs.quarkiverse.io/quarkus-web-bundler/dev/
 ✬ quarkus-web-dependency-locator                     Web Dependency Locator                                       3.17.6                    https://quarkus.io/guides/web-dependency-locator
-✬ quarkus-webjars-locator                            WebJar Locator                                               3.8.6                     https://quarkus.io/guides/http-reference#webjar-locator-support
 ✬ quarkus-websockets                                 WebSockets                                                   3.17.6                    https://quarkus.io/guides/websockets
 ✬ quarkus-websockets-client                          WebSockets Client                                            3.17.6                    https://quarkus.io/guides/websockets
 ✬ quarkus-websockets-next                            WebSockets Next                                              3.17.6                    https://quarkus.io/guides/websockets-next-reference
@@ -684,11 +646,11 @@ Current Quarkus extensions installable:
   quarkus-zeebe                                      Zeebe                                                        1.6.0                     
   quarkus-zookeeper                                  Zookeeper                                                    1.4.1                     
   quarkus-zxing                                      Zebra Crossing                                               1.0.0                     https://docs.quarkiverse.io/quarkus-barcode/dev/index.html
-  timefold-solver-quarkus                            Timefold                                                     1.17.0                    
-  timefold-solver-quarkus-benchmark                  Timefold benchmark                                           1.17.0                    
-  timefold-solver-quarkus-jackson                    Timefold Jackson                                             1.17.0                    
-  timefold-solver-quarkus-jsonb                      Timefold JSON-B                                              1.17.0                    
-  vaadin-quarkus-extension                           Vaadin Flow                                                  24.6.1                    https://vaadin.com/docs/latest/flow/integrations/quarkus
+  timefold-solver-quarkus                            Timefold                                                     1.18.0                    
+  timefold-solver-quarkus-benchmark                  Timefold benchmark                                           1.18.0                    
+  timefold-solver-quarkus-jackson                    Timefold Jackson                                             1.18.0                    
+  timefold-solver-quarkus-jsonb                      Timefold JSON-B                                              1.18.0                    
+  vaadin-quarkus-extension                           Vaadin Flow                                                  24.6.4                    https://vaadin.com/docs/latest/flow/integrations/quarkus
 
 To list only extensions from specific category, append `--category "categoryId"` to your command line.
 

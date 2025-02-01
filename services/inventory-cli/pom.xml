@@ -5,13 +5,10 @@
         <relativePath>../../pom.xml</relativePath>
         <groupId>nl.vea.quia</groupId>
         <artifactId>quia</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>inventory-cli</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <properties>
-    </properties>
+    <version>1.0.0</version>
 <!--
 
     <dependencyManagement>
@@ -31,7 +28,7 @@
         <dependency>
             <groupId>nl.vea.quia</groupId>
             <artifactId>inventory-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -41,6 +38,10 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-docker</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
