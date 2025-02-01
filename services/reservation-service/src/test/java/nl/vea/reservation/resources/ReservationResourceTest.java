@@ -99,7 +99,8 @@ public class ReservationResourceTest {
                 .get(availability)
                 .then()
                 .statusCode(200)
-                .body(STR."findAll { car -> car.getId() == \{ car.getId()} }", hasSize(0));
-//                .body(STR."findAll { car -> car.getId() == " + car.getId()+ " }", hasSize(0));
+//              needs preview mode for String templates
+//                .body(STR."findAll { car -> car.getId() == \{ car.getId()} }", hasSize(0));
+               .body("findAll { car -> car.getId() == " + car.getId()+ " }", hasSize(0));
     }
 }
