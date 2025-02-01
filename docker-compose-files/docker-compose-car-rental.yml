@@ -1,4 +1,4 @@
-version: '3.7'
+---
 
 services:
 
@@ -6,17 +6,17 @@ services:
 
   # Users service
   users-service:
-    image: quay.io/quarkus-in-action/users-service:1.0.0
+    image: quay.io/wjc.van.es/users-service:1.0.0
     container_name: users-service
     network_mode: host
     restart: always
     depends_on:
       keycloak:
-        condition: service_healthy
+        condition: service_started
 
   # Reservation service
   reservation-service:
-    image: quay.io/quarkus-in-action/reservation-service:1.0.0
+    image: quay.io/wjc.van.es/reservation-service:1.0.0
     container_name: reservation-service
     network_mode: host
     restart: always
@@ -24,13 +24,13 @@ services:
       postgres-reservation:
         condition: service_healthy
       keycloak:
-        condition: service_healthy
+        condition: service_started
       rabbitmq:
         condition: service_healthy
 
   # Rental service
   rental-service:
-    image: quay.io/quarkus-in-action/rental-service:1.0.0
+    image: quay.io/wjc.van.es/rental-service:1.0.0
     container_name: rental-service
     network_mode: host
     restart: always
@@ -42,7 +42,7 @@ services:
 
   # Inventory service
   inventory-service:
-    image: quay.io/quarkus-in-action/inventory-service:1.0.0
+    image: quay.io/wjc.van.es/inventory-service:1.0.0
     container_name: inventory-service
     network_mode: host
     restart: always
@@ -52,7 +52,7 @@ services:
 
   # Billing service
   billing-service:
-    image: quay.io/quarkus-in-action/billing-service:1.0.0
+    image: quay.io/wjc.van.es/billing-service:1.0.0
     container_name: billing-service
     network_mode: host
     restart: always
