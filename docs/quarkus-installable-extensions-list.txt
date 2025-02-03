@@ -393,7 +393,7 @@ Current Quarkus extensions installable:
 ✬ quarkus-infinispan-cache                           Infinispan Cache                                             3.17.6                    https://quarkus.io/guides/cache-infinispan-reference
 ✬ quarkus-infinispan-client                          Infinispan Client                                            3.17.6                    https://quarkus.io/guides/infinispan-client
 ✬ quarkus-info                                       Info                                                         3.17.6                    
-  quarkus-ironjacamar                                IronJacamar (JCA)                                            1.5.0                     https://docs.quarkiverse.io/quarkus-ironjacamar/dev/
+  quarkus-ironjacamar                                IronJacamar (JCA)                                            1.5.1                     https://docs.quarkiverse.io/quarkus-ironjacamar/dev/
   quarkus-itext                                      iText                                                        3.1.2                     https://quarkiverse.github.io/quarkiverse-docs/quarkus-itext/dev/
 ✬ quarkus-jackson                                    Jackson                                                      3.17.6                    
   quarkus-jackson-jq                                 Jackson Jq                                                   2.2.0                     
