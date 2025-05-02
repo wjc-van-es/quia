@@ -69,7 +69,7 @@ services:
   # Keycloak
   postgres-keycloak:
     container_name: postgres-keycloak
-    image: docker.io/library/postgres:17.2
+    image: docker.io/library/postgres:17.4
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -119,7 +119,7 @@ services:
 
   # Postgres for Reservation service
   postgres-reservation:
-    image: docker.io/library/postgres:17.2
+    image: docker.io/library/postgres:17.4
     container_name: postgres-reservation
     environment:
       POSTGRES_DB: reservation
