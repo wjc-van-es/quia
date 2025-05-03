@@ -137,6 +137,10 @@
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
 
+                    <!-- This did not alleviate the problem when upgrading Quarkus from 3.17.3 to 3.18 or 3.22.2 -->
+                    <!-- -->
+                    <!--<argLine>-XX:MaxMetaspaceSize=512m</argLine>-->
+
                     <!-- For testing with String template in Java 21 (preview-enabled) -->
                     <argLine>--enable-preview</argLine>
                 </configuration>
