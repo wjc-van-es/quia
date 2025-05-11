@@ -38,6 +38,9 @@ h1,h2,h3,h4,h5 {
 
 # Upgrade from 3.17.6 to 3.18.3 leads to test failures in reservation-service
 When trying a `mvn clean package -e -X` we found 
+
+<details>
+
 ```bash
 [DEBUG] [io.quarkus.bootstrap.classloading.QuarkusClassLoader.lifecycle] (main) Creating class loader QuarkusClassLoader:Augmentation Class Loader: PROD for reservation-service-1.0.0@7200702
 java.lang.RuntimeException: Created to log a stacktrace
@@ -266,6 +269,9 @@ Caused by: java.lang.IllegalArgumentException: SRMSG00071: Invalid channel confi
         ... 16 more
 
 ```
+
+</details>
+
 It appears that dev mode and production mode classloaders are combined
 When running the tests in the service from the IDE:
 ```bash
